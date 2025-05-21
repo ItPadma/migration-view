@@ -183,6 +183,11 @@
                                     href="#tabpanel-kas" role="tab"
                                     aria-controls="tabpanel-kas" aria-selected="false">Expense Kas</a>
                             </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-6" data-bs-toggle="tab"
+                                    href="#tabpanel-jurnalmemo" role="tab"
+                                    aria-controls="tabpanel-jurnalmemo" aria-selected="false">Expense Jurnal Memo</a>
+                            </li>
                         </ul>
                         <div class="tab-content pt-5" id="tab-content">
                             <div class="tab-pane active" id="tabpanel-pelunasanhutang" role="tabpanel"
@@ -380,6 +385,40 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="tab-pane" id="tabpanel-jurnalmemo" role="tabpanel"
+                                aria-labelledby="tabpanel-jurnalmemo">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-jurnalmemo">
+                                        <thead>
+                                            <tr>
+                                                <th>Tgl</th>
+                                                <th>NoBukti</th>
+                                                <th>NoRef</th>
+                                                <th>PT</th>
+                                                <th>NamaPT</th>
+                                                <th>PRINCIPLE</th>
+                                                <th>NamaPrinciple</th>
+                                                <th>DEPO</th>
+                                                <th>NamaDepo</th>
+                                                <th>KodeArea</th>
+                                                <th>NamaArea</th>
+                                                <th>KodeDivisi</th>
+                                                <th>NamaDivisi</th>
+                                                <th>Kategori</th>
+                                                <th>NoAkun</th>
+                                                <th>NamaAkun</th>
+                                                <th>Keterangan</th>
+                                                <th>Debet</th>
+                                                <th>Kredit</th>
+                                                <th>NoAkunLengkap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -414,7 +453,7 @@
 
         $(document).ready(function() {
             var tablePelunasanHutang, tablePelunasanHutangDetail, tablePelunasanPiutang,
-            tablePelunasanPiutangDetail, tableBank, tableKas;
+            tablePelunasanPiutangDetail, tableBank, tableKas, tableJurnalMemo;
 
             tablePelunasanHutang = $('#table-pelunasanhutang').DataTable({
                 processing: true,
@@ -849,6 +888,88 @@
                 }
             });
 
+            tableKas = $('#table-jurnalmemo').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'jurnalmemo';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: [
+                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
+                    {
+                        data: 'NoBukti', name: 'NoBukti', className: 'column-md',
+                        render: function(data, type, row) {
+                            return data ? data.toString() : '';
+                        }
+                    },
+                    { data: 'NoRef', name: 'NoRef', className: 'column-md' },
+                    { data: 'PT', name: 'PT', className: 'column-sm' },
+                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
+                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
+                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
+                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
+                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
+                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
+                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
+                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
+                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
+                    { data: 'Kategori', name: 'Kategori', className: 'column-sm' },
+                    { data: 'NoAkun', name: 'NoAkun', className: 'column-md' },
+                    { data: 'NamaAkun', name: 'NamaAkun', className: 'column-md' },
+                    { data: 'Keterangan', name: 'Keterangan', className: 'column-lg' },
+                    { data: 'Debet', name: 'Debet', className: 'column-sm' },
+                    { data: 'Kredit', name: 'Kredit', className: 'column-sm' },
+                    { data: 'NoAkunLengkap', name: 'NoAkunLengkap', className: 'column-lg' },
+                ],
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                "pageLength": 25,
+                "language": {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableJurnalMemo.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
             function activateTab(tabId) {
                 var tabEl = document.querySelector(tabId);
                 var tab = new bootstrap.Tab(tabEl);
@@ -873,7 +994,7 @@
 
                 if (filterTarget === 'all') {
                     var reloadCounter = 0;
-                    var totalTables = 6; // Jumlah tabel yang akan di-reload
+                    var totalTables = 7; // Jumlah tabel yang akan di-reload
 
                     function checkAllTablesLoaded() {
                         reloadCounter++;
@@ -888,6 +1009,7 @@
                     tablePelunasanPiutangDetail.ajax.reload(checkAllTablesLoaded, false);
                     tableBank.ajax.reload(checkAllTablesLoaded, false);
                     tableKas.ajax.reload(checkAllTablesLoaded, false);
+                    tableJurnalMemo.ajax.reload(checkAllTablesLoaded, false);
                 } else if (filterTarget === 'pelunasanhutang') {
                     activateTab('#tab-0');
                     tablePelunasanHutang.ajax.reload(function() {
@@ -928,6 +1050,13 @@
                     tableKas.ajax.reload(function() {
                         showSuccessToast(
                             'Data Expense Kas berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'jurnalmemo') {
+                    activateTab('#tab-5');
+                    tableJurnalMemo.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Expense Jurnal Memo berhasil difilter berdasarkan periode: ' +
                             selectedPeriode);
                     }, false);
                 }
