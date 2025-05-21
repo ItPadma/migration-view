@@ -2,10 +2,10 @@
 
 namespace App\Exports;
 
-use App\Models\ExpensePelunasanHutang;
+use App\Models\ExpenseBank;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class PelunasanHutangExport implements FromCollection
+class BankExport implements FromCollection
 {
     protected $start;
     protected $end;
@@ -15,12 +15,12 @@ class PelunasanHutangExport implements FromCollection
         $this->start = $start;
         $this->end = $end;
     }
-    
+
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
-        return ExpensePelunasanHutang::whereBetween('Tgl', [$this->start, $this->end])->get();
+        return ExpenseBank::whereBetween('Tgl', [$this->start, $this->end])->get();
     }
 }

@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BankExport;
+use App\Exports\JurnalMemoExport;
+use App\Exports\KasExport;
 use App\Exports\PelunasanHutangDExport;
 use App\Exports\PelunasanHutangExport;
 use App\Exports\PelunasanPiutangDExport;
 use App\Exports\PelunasanPiutangExport;
+use App\Models\ExpenseBank;
+use App\Models\ExpenseJurnalMemo;
+use App\Models\ExpenseKas;
 use App\Models\ExpensePelunasanHutang;
 use App\Models\ExpensePelunasanHutangD;
 use App\Models\ExpensePelunasanPiutang;
@@ -40,8 +46,17 @@ class MigrationController extends Controller
             } elseif ($tipe == 'pelunasanpiutang') {
                 $query = ExpensePelunasanPiutang::query()
                     ->whereBetween('Tgl', [$startDate, $endDate]);
-            }elseif ($tipe == 'pelunasanpiutangd') {
+            } elseif ($tipe == 'pelunasanpiutangd') {
                 $query = ExpensePelunasanPiutangD::query();
+            } elseif ($tipe == 'bank') {
+                $query = ExpenseBank::query()
+                    ->whereBetween('Tgl', [$startDate, $endDate]);
+            } elseif ($tipe == 'kas') {
+                $query = ExpenseKas::query()
+                    ->whereBetween('Tgl', [$startDate, $endDate]);
+            } elseif ($tipe == 'jurnalmemo') {
+                $query = ExpenseJurnalMemo::query()
+                    ->whereBetween('Tgl', [$startDate, $endDate]);
             } else {
                 return response()->json([
                     'draw' => intval($request->input('draw', 1)),
@@ -85,6 +100,25 @@ class MigrationController extends Controller
                             ->orWhere('NoInvoice', 'like', "%{$searchValue}%");
                     });
                 }
+                if ($tipe == 'bank') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('NoBukti', 'like', "%{$searchValue}%")
+                            ->orWhere('NomorRecord', 'like', "%{$searchValue}%")
+                            ->orWhere('NomorKitir', 'like', "%{$searchValue}%");
+                    });
+                }
+                if ($tipe == 'kas') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('NoBukti', 'like', "%{$searchValue}%")
+                            ->orWhere('NoBuktiRef', 'like', "%{$searchValue}%");
+                    });
+                }
+                if ($tipe == 'jurnalmemo') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('NoBukti', 'like', "%{$searchValue}%");
+                    });
+                }
+
             }
 
             // Mendapatkan jumlah record setelah filter
@@ -132,15 +166,19 @@ class MigrationController extends Controller
             $endDate = $request->input('endDate');
 
             if ($tipe == 'pelunasanhutang') {
-                return Excel::download(new PelunasanHutangExport($startDate, $endDate), "pelunasanhutang_{$startDate}_{$endDate}.xlsx");
+                return Excel::download(new PelunasanHutangExport($startDate, $endDate), "Expense_PelunasanHutang_{$startDate}_{$endDate}.xlsx");
             } elseif ($tipe == 'pelunasanhutangd') {
-                return Excel::download(new PelunasanHutangDExport, 'pelunasanhutangd.xlsx');
+                return Excel::download(new PelunasanHutangDExport, 'Expense_PelunasanHutangD.xlsx');
             } elseif ($tipe == 'pelunasanpiutang') {
-                return Excel::download(new PelunasanPiutangExport($startDate, $endDate), "pelunasanpiutang_{$startDate}_{$endDate}.xlsx");
+                return Excel::download(new PelunasanPiutangExport($startDate, $endDate), "Expense_PelunasanPiutang_{$startDate}_{$endDate}.xlsx");
             } elseif ($tipe == 'pelunasanpiutangd') {
-                return Excel::download(new PelunasanPiutangDExport, 'pelunasanpiutangd.xlsx');
-            } elseif ($tipe == 'all') {
-
+                return Excel::download(new PelunasanPiutangDExport, 'Expense_PelunasanPiutangD.xlsx');
+            } elseif ($tipe == 'bank') {
+                return Excel::download(new BankExport($startDate, $endDate), "Expense_Bank_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'kas') {
+                return Excel::download(new KasExport($startDate, $endDate), "Expense_Kas_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'jurnalmemo') {
+                return Excel::download(new JurnalMemoExport($startDate, $endDate), "Expense_Jurnal_Memo_{$startDate}_{$endDate}.xlsx");
             }
         } catch (\Throwable $th) {
             return response()->json([
