@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ApCnDnExport;
+use App\Exports\ArCnDnExport;
 use App\Exports\BankExport;
 use App\Exports\JurnalMemoExport;
 use App\Exports\KasExport;
@@ -9,6 +11,8 @@ use App\Exports\PelunasanHutangDExport;
 use App\Exports\PelunasanHutangExport;
 use App\Exports\PelunasanPiutangDExport;
 use App\Exports\PelunasanPiutangExport;
+use App\Models\ExpenseApCnDn;
+use App\Models\ExpenseArCnDn;
 use App\Models\ExpenseBank;
 use App\Models\ExpenseJurnalMemo;
 use App\Models\ExpenseKas;
@@ -56,6 +60,12 @@ class MigrationController extends Controller
                     ->whereBetween('Tgl', [$startDate, $endDate]);
             } elseif ($tipe == 'jurnalmemo') {
                 $query = ExpenseJurnalMemo::query()
+                    ->whereBetween('Tgl', [$startDate, $endDate]);
+            } elseif ($tipe == 'apcndn') {
+                $query = ExpenseApCnDn::query()
+                    ->whereBetween('Tgl', [$startDate, $endDate]);
+            } elseif ($tipe == 'arcndn') {
+                $query = ExpenseArCnDn::query()
                     ->whereBetween('Tgl', [$startDate, $endDate]);
             } else {
                 return response()->json([
@@ -118,7 +128,16 @@ class MigrationController extends Controller
                         $q->where('NoBukti', 'like', "%{$searchValue}%");
                     });
                 }
-
+                if ($tipe == 'apcndn') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('NoBukti', 'like', "%{$searchValue}%");
+                    });
+                }
+                if ($tipe == 'arcndn') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('NoBukti', 'like', "%{$searchValue}%");
+                    });
+                }
             }
 
             // Mendapatkan jumlah record setelah filter
@@ -179,6 +198,10 @@ class MigrationController extends Controller
                 return Excel::download(new KasExport($startDate, $endDate), "Expense_Kas_{$startDate}_{$endDate}.xlsx");
             } elseif ($tipe == 'jurnalmemo') {
                 return Excel::download(new JurnalMemoExport($startDate, $endDate), "Expense_Jurnal_Memo_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'apcndn') {
+                return Excel::download(new ApCnDnExport($startDate, $endDate), "Expense_AP_CNDN_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'arcndn') {
+                return Excel::download(new ArCnDnExport($startDate, $endDate), "Expense_AR_CNDN_{$startDate}_{$endDate}.xlsx");
             }
         } catch (\Throwable $th) {
             return response()->json([

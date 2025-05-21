@@ -141,6 +141,8 @@
                             <option value="bank">Expense Bank</option>
                             <option value="kas">Expense Kas</option>
                             <option value="jurnalmemo">Expense Jurnal Memo</option>
+                            <option value="apcndn">Expense AP CN/DN</option>
+                            <option value="arcndn">Expense AR CN/DN</option>
                         </select>
                         <button id="btn-download" class="btn btn-outline-success"><i
                                 class="fas fa-download"></i> Download</button>
@@ -187,6 +189,16 @@
                                 <a class="nav-link" id="tab-6" data-bs-toggle="tab"
                                     href="#tabpanel-jurnalmemo" role="tab"
                                     aria-controls="tabpanel-jurnalmemo" aria-selected="false">Expense Jurnal Memo</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-7" data-bs-toggle="tab"
+                                    href="#tabpanel-apcndn" role="tab"
+                                    aria-controls="tabpanel-apcndn" aria-selected="false">Expense AP CN/DN</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-8" data-bs-toggle="tab"
+                                    href="#tabpanel-arcndn" role="tab"
+                                    aria-controls="tabpanel-arcndn" aria-selected="false">Expense AR CN/DN</a>
                             </li>
                         </ul>
                         <div class="tab-content pt-5" id="tab-content">
@@ -419,6 +431,84 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="tab-pane" id="tabpanel-apcndn" role="tabpanel"
+                                aria-labelledby="tabpanel-apcndn">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-apcndn">
+                                        <thead>
+                                            <tr>
+                                                <th>Tgl</th>
+                                                <th>NoBukti</th>
+                                                <th>NoBuktiFAS</th>
+                                                <th>PT</th>
+                                                <th>NamaPT</th>
+                                                <th>PRINCIPLE</th>
+                                                <th>NamaPrinciple</th>
+                                                <th>DEPO</th>
+                                                <th>NamaDepo</th>
+                                                <th>KodeArea</th>
+                                                <th>NamaArea</th>
+                                                <th>KodeDivisi</th>
+                                                <th>NamaDivisi</th>
+                                                <th>KodePemasok</th>
+                                                <th>NamaPemasok</th>
+                                                <th>NoFaktur</th>
+                                                <th>TglFaktur</th>
+                                                <th>Nilai</th>
+                                                <th>Jenis</th>
+                                                <th>NoAkun</th>
+                                                <th>NamaAkun</th>
+                                                <th>NoAkunLawan</th>
+                                                <th>NamaAkunLawan</th>
+                                                <th>Jenis(Keluar/Masuk)</th>
+                                                <th>NoAkunLengkap</th>
+                                                <th>NoAkunLawanLengkap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-arcndn" role="tabpanel"
+                                aria-labelledby="tabpanel-arcndn">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-arcndn">
+                                        <thead>
+                                            <tr>
+                                                <th>Tgl</th>
+                                                <th>NoBukti</th>
+                                                <th>NoBuktiFAS</th>
+                                                <th>PT</th>
+                                                <th>NamaPT</th>
+                                                <th>PRINCIPLE</th>
+                                                <th>NamaPrinciple</th>
+                                                <th>DEPO</th>
+                                                <th>NamaDepo</th>
+                                                <th>KodeArea</th>
+                                                <th>NamaArea</th>
+                                                <th>KodeCustomer</th>
+                                                <th>NamaCustomer</th>
+                                                <th>NoFaktur</th>
+                                                <th>TglFaktur</th>
+                                                <th>Nilai</th>
+                                                <th>Jenis</th>
+                                                <th>NoAkun</th>
+                                                <th>NamaAkun</th>
+                                                <th>NoAkunLawan</th>
+                                                <th>NamaAkunLawan</th>
+                                                <th>Jenis(Keluar/Masuk)</th>
+                                                <th>NoAkunLengkap</th>
+                                                <th>NoAkunLawanLengkap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -453,7 +543,7 @@
 
         $(document).ready(function() {
             var tablePelunasanHutang, tablePelunasanHutangDetail, tablePelunasanPiutang,
-            tablePelunasanPiutangDetail, tableBank, tableKas, tableJurnalMemo;
+            tablePelunasanPiutangDetail, tableBank, tableKas, tableJurnalMemo, tableApCnDn, tableArCnDn;
 
             tablePelunasanHutang = $('#table-pelunasanhutang').DataTable({
                 processing: true,
@@ -888,7 +978,7 @@
                 }
             });
 
-            tableKas = $('#table-jurnalmemo').DataTable({
+            tableJurnalMemo = $('#table-jurnalmemo').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
@@ -970,6 +1060,170 @@
                 }
             });
 
+            tableApCnDn = $('#table-apcndn').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'apcndn';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: [
+                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
+                    { data: 'NoBukti', name: 'NoBukti', className: 'column-lg' },
+                    { data: 'NoBuktiFAS', name: 'NoBuktiFAS', className: 'column-md' },
+                    { data: 'PT', name: 'PT', className: 'column-sm' },
+                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
+                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
+                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
+                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
+                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
+                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
+                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
+                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
+                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
+                    { data: 'KodePemasok', name: 'KodePemasok', className: 'column-md' },
+                    { data: 'NamaPemasok', name: 'NamaPemasok', className: 'column-lg' },
+                    { data: 'NoFaktur', name: 'NoFaktur', className: 'column-md' },
+                    { data: 'TglFaktur', name: 'TglFaktur', className: 'column-md' },
+                    { data: 'Nilai', name: 'Nilai', className: 'column-md' },
+                    { data: 'Jenis', name: 'Jenis', className: 'column-sm' },
+                    { data: 'NoAkun', name: 'NoAkun', className: 'column-md' },
+                    { data: 'NamaAkun', name: 'NamaAkun', className: 'column-lg' },
+                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
+                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-lg' },
+                    { data: 'Jenis(Keluar/Masuk)', name: 'Jenis(Keluar/Masuk)', className: 'column-sm' },
+                    { data: 'NoAkunLengkap', name: 'NoAkunLengkap', className: 'column-lg' },
+                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
+                ],
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                "pageLength": 25,
+                "language": {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableApCnDn.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tableArCnDn = $('#table-arcndn').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'arcndn';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: [
+                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
+                    { data: 'NoBukti', name: 'NoBukti', className: 'column-lg' },
+                    { data: 'NoBuktiFAS', name: 'NoBuktiFAS', className: 'column-md' },
+                    { data: 'PT', name: 'PT', className: 'column-sm' },
+                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
+                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
+                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
+                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
+                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
+                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
+                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
+                    { data: 'KodeCustomer', name: 'KodeCustomer', className: 'column-md' },
+                    { data: 'NamaCustomer', name: 'NamaCustomer', className: 'column-lg' },
+                    { data: 'NoFaktur', name: 'NoFaktur', className: 'column-md' },
+                    { data: 'TglFaktur', name: 'TglFaktur', className: 'column-md' },
+                    { data: 'Nilai', name: 'Nilai', className: 'column-md' },
+                    { data: 'Jenis', name: 'Jenis', className: 'column-sm' },
+                    { data: 'NoAkun', name: 'NoAkun', className: 'column-md' },
+                    { data: 'NamaAkun', name: 'NamaAkun', className: 'column-lg' },
+                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
+                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-lg' },
+                    { data: 'Jenis(Keluar/Masuk)', name: 'Jenis(Keluar/Masuk)', className: 'column-sm' },
+                    { data: 'NoAkunLengkap', name: 'NoAkunLengkap', className: 'column-lg' },
+                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
+                ],
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                "pageLength": 25,
+                "language": {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableArCnDn.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
             function activateTab(tabId) {
                 var tabEl = document.querySelector(tabId);
                 var tab = new bootstrap.Tab(tabEl);
@@ -994,7 +1248,7 @@
 
                 if (filterTarget === 'all') {
                     var reloadCounter = 0;
-                    var totalTables = 7; // Jumlah tabel yang akan di-reload
+                    var totalTables = 9; // Jumlah tabel yang akan di-reload
 
                     function checkAllTablesLoaded() {
                         reloadCounter++;
@@ -1010,6 +1264,8 @@
                     tableBank.ajax.reload(checkAllTablesLoaded, false);
                     tableKas.ajax.reload(checkAllTablesLoaded, false);
                     tableJurnalMemo.ajax.reload(checkAllTablesLoaded, false);
+                    tableApCnDn.ajax.reload(checkAllTablesLoaded, false);
+                    tableArCnDn.ajax.reload(checkAllTablesLoaded, false);
                 } else if (filterTarget === 'pelunasanhutang') {
                     activateTab('#tab-0');
                     tablePelunasanHutang.ajax.reload(function() {
@@ -1053,10 +1309,24 @@
                             selectedPeriode);
                     }, false);
                 } else if (filterTarget === 'jurnalmemo') {
-                    activateTab('#tab-5');
+                    activateTab('#tab-6');
                     tableJurnalMemo.ajax.reload(function() {
                         showSuccessToast(
                             'Data Expense Jurnal Memo berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'apcndn') {
+                    activateTab('#tab-7');
+                    tableApCnDn.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Expense AP CN/DN berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'arcndn') {
+                    activateTab('#tab-8');
+                    tableArCnDn.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Expense AR CN/DN berhasil difilter berdasarkan periode: ' +
                             selectedPeriode);
                     }, false);
                 }
