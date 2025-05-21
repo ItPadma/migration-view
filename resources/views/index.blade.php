@@ -178,6 +178,11 @@
                                     href="#tabpanel-bank" role="tab"
                                     aria-controls="tabpanel-bank" aria-selected="false">Expense Bank</a>
                             </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-5" data-bs-toggle="tab"
+                                    href="#tabpanel-kas" role="tab"
+                                    aria-controls="tabpanel-kas" aria-selected="false">Expense Kas</a>
+                            </li>
                         </ul>
                         <div class="tab-content pt-5" id="tab-content">
                             <div class="tab-pane active" id="tabpanel-pelunasanhutang" role="tabpanel"
@@ -335,6 +340,46 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="tab-pane" id="tabpanel-kas" role="tabpanel"
+                                aria-labelledby="tabpanel-kas">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-kas">
+                                        <thead>
+                                            <tr>
+                                                <th>Tgl</th>
+                                                <th>NoBukti</th>
+                                                <th>NoBuktiRef</th>
+                                                <th>PT</th>
+                                                <th>NamaPT</th>
+                                                <th>PRINCIPLE</th>
+                                                <th>NamaPrinciple</th>
+                                                <th>DEPO</th>
+                                                <th>NamaDepo</th>
+                                                <th>KodeArea</th>
+                                                <th>NamaArea</th>
+                                                <th>KodeDivisi</th>
+                                                <th>NamaDivisi</th>
+                                                <th>NoRekeningBank</th>
+                                                <th>Kategori</th>
+                                                <th>NoAkunBank</th>
+                                                <th>NamaAkunBank</th>
+                                                <th>NoAkunLawan</th>
+                                                <th>NamaAkunLawan</th>
+                                                <th>Jenis(Keluar/Masuk)</th>
+                                                <th>Keterangan</th>
+                                                <th>Nilai</th>
+                                                <th>Debet</th>
+                                                <th>Kredit</th>
+                                                <th>NoAkunBankLengkap</th>
+                                                <th>NoAkunLawanLengkap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -369,7 +414,7 @@
 
         $(document).ready(function() {
             var tablePelunasanHutang, tablePelunasanHutangDetail, tablePelunasanPiutang,
-            tablePelunasanPiutangDetail, tableBank;
+            tablePelunasanPiutangDetail, tableBank, tableKas;
 
             tablePelunasanHutang = $('#table-pelunasanhutang').DataTable({
                 processing: true,
@@ -691,7 +736,95 @@
                     this.api().columns.adjust().draw();
                     // Tambahkan event listener untuk window resize
                     $(window).on('resize', function() {
-                        tablePelunasanHutang.columns.adjust();
+                        tableBank.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tableKas = $('#table-kas').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'kas';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: [
+                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
+                    {
+                        data: 'NoBukti', name: 'NoBukti', className: 'column-md',
+                        render: function(data, type, row) {
+                            return data ? data.toString() : '';
+                        }
+                    },
+                    { data: 'NoBuktiRef', name: 'NoBuktiRef', className: 'column-md' },
+                    { data: 'PT', name: 'PT', className: 'column-sm' },
+                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
+                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
+                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
+                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
+                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
+                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
+                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
+                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
+                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
+                    { data: 'NoRekeningBank', name: 'NoRekeningBank', className: 'column-md' },
+                    { data: 'Kategori', name: 'Kategori', className: 'column-sm' },
+                    { data: 'NoAkunBank', name: 'NoAkunBank', className: 'column-md' },
+                    { data: 'NamaAkunBank', name: 'NamaAkunBank', className: 'column-md' },
+                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
+                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-sm' },
+                    { data: 'Jenis(Keluar/Masuk)', name: 'Jenis(Keluar/Masuk)', className: 'column-md' },
+                    { data: 'Keterangan', name: 'Keterangan', className: 'column-lg' },
+                    { data: 'Nilai', name: 'Nilai', className: 'column-md' },
+                    { data: 'Debet', name: 'Debet', className: 'column-sm' },
+                    { data: 'Kredit', name: 'Kredit', className: 'column-sm' },
+                    { data: 'NoAkunBankLengkap', name: 'NoAkunBankLengkap', className: 'column-lg' },
+                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
+                ],
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                "pageLength": 25,
+                "language": {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableKas.columns.adjust();
                     });
                 },
                 preDrawCallback: function() {
@@ -740,7 +873,7 @@
 
                 if (filterTarget === 'all') {
                     var reloadCounter = 0;
-                    var totalTables = 5; // Jumlah tabel yang akan di-reload
+                    var totalTables = 6; // Jumlah tabel yang akan di-reload
 
                     function checkAllTablesLoaded() {
                         reloadCounter++;
@@ -754,6 +887,7 @@
                     tablePelunasanPiutang.ajax.reload(checkAllTablesLoaded, false);
                     tablePelunasanPiutangDetail.ajax.reload(checkAllTablesLoaded, false);
                     tableBank.ajax.reload(checkAllTablesLoaded, false);
+                    tableKas.ajax.reload(checkAllTablesLoaded, false);
                 } else if (filterTarget === 'pelunasanhutang') {
                     activateTab('#tab-0');
                     tablePelunasanHutang.ajax.reload(function() {
@@ -784,9 +918,16 @@
                     }, false);
                 } else if (filterTarget === 'bank') {
                     activateTab('#tab-4');
-                    tablePelunasanPiutangDetail.ajax.reload(function() {
+                    tableBank.ajax.reload(function() {
                         showSuccessToast(
                             'Data Expense Bank berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'kas') {
+                    activateTab('#tab-5');
+                    tableKas.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Expense Kas berhasil difilter berdasarkan periode: ' +
                             selectedPeriode);
                     }, false);
                 }
