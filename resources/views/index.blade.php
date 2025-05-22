@@ -1918,6 +1918,14 @@
             }
 
             $('#table-maph').html(generateThead(tableConfig.maph));
+            $('#table-mapd').html(generateThead(tableConfig.mapd));
+            $('#table-marh').html(generateThead(tableConfig.marh));
+            $('#table-mard').html(generateThead(tableConfig.mapd));
+            $('#table-mbelih').html(generateThead(tableConfig.mbelih));
+            $('#table-mbelid').html(generateThead(tableConfig.mbelid));
+            $('#table-penjualanh').html(generateThead(tableConfig.penjualanh));
+            $('#table-penjualand').html(generateThead(tableConfig.penjualand));
+
             tableMApH = $('#table-maph').DataTable({
                 processing: tableConfig.maph.processing,
                 serverSide: tableConfig.maph.serverSide,
@@ -1974,7 +1982,6 @@
                 }
             });
 
-            $('#table-mapd').html(generateThead(tableConfig.mapd));
             tableMApD = $('#table-mapd').DataTable({
                 processing: tableConfig.mapd.processing,
                 serverSide: tableConfig.mapd.serverSide,
@@ -2031,8 +2038,7 @@
                 }
             });
 
-            $('#table-marh').html(generateThead(tableConfig.marh));
-            tableMApH = $('#table-marh').DataTable({
+            tableMArH = $('#table-marh').DataTable({
                 processing: tableConfig.marh.processing,
                 serverSide: tableConfig.marh.serverSide,
                 ajax: {
@@ -2088,8 +2094,7 @@
                 }
             });
 
-            $('#table-mard').html(generateThead(tableConfig.mapd));
-            tableMApD = $('#table-mard').DataTable({
+            tableMArD = $('#table-mard').DataTable({
                 processing: tableConfig.mard.processing,
                 serverSide: tableConfig.mard.serverSide,
                 ajax: {
@@ -2145,7 +2150,6 @@
                 }
             });
 
-            $('#table-mbelih').html(generateThead(tableConfig.mbelih));
             tableMbeliH = $('#table-mbelih').DataTable({
                 processing: tableConfig.mbelih.processing,
                 serverSide: tableConfig.mbelih.serverSide,
@@ -2202,7 +2206,6 @@
                 }
             });
 
-            $('#table-mbelid').html(generateThead(tableConfig.mbelid));
             tableMbeliD = $('#table-mbelid').DataTable({
                 processing: tableConfig.mbelid.processing,
                 serverSide: tableConfig.mbelid.serverSide,
@@ -2259,7 +2262,6 @@
                 }
             });
 
-            $('#table-penjualanh').html(generateThead(tableConfig.penjualanh));
             tablePenjualanH = $('#table-penjualanh').DataTable({
                 processing: tableConfig.penjualanh.processing,
                 serverSide: tableConfig.penjualanh.serverSide,
@@ -2316,7 +2318,6 @@
                 }
             });
 
-            $('#table-penjualand').html(generateThead(tableConfig.penjualand));
             tablePenjualanD = $('#table-penjualand').DataTable({
                 processing: tableConfig.penjualand.processing,
                 serverSide: tableConfig.penjualand.serverSide,
@@ -2397,36 +2398,52 @@
 
                 if (filterTarget === 'all') {
                     var reloadCounter = 0;
-                    var totalTables = 13; // Jumlah tabel yang akan di-reload
-
+                    var totalTables = 21; // Jumlah tabel yang akan di-reload
                     function checkAllTablesLoaded() {
                         reloadCounter++;
+                        console.log(reloadCounter);
                         if (reloadCounter >= totalTables) {
                             showSuccessToast('Semua data berhasil difilter berdasarkan periode: ' +
                                 selectedPeriode);
+                            $(this).prop('disabled', false);
                         }
                     }
-                    tablePelunasanHutang.ajax.reload(checkAllTablesLoaded, false);
-                    tablePelunasanHutangDetail.ajax.reload(checkAllTablesLoaded, false);
-                    tablePelunasanPiutang.ajax.reload(checkAllTablesLoaded, false);
-                    tablePelunasanPiutangDetail.ajax.reload(checkAllTablesLoaded, false);
-                    tableBank.ajax.reload(checkAllTablesLoaded, false);
-                    tableKas.ajax.reload(checkAllTablesLoaded, false);
-                    tableJurnalMemo.ajax.reload(checkAllTablesLoaded, false);
-                    tableApCnDn.ajax.reload(checkAllTablesLoaded, false);
-                    tableArCnDn.ajax.reload(checkAllTablesLoaded, false);
-                    tableTagihanKlaim.ajax.reload(checkAllTablesLoaded, false);
-                    tablePembayaranKlaim.ajax.reload(checkAllTablesLoaded, false);
-                    tablePembayaranPphKlaim.ajax.reload(checkAllTablesLoaded, false);
-                    tableSaldoAwalKlaim.ajax.reload(checkAllTablesLoaded, false);
-                    tableMApH.ajax.reload(checkAllTablesLoaded, false);
-                    tableMApD.ajax.reload(checkAllTablesLoaded, false);
-                    tableMArH.ajax.reload(checkAllTablesLoaded, false);
-                    tableMApD.ajax.reload(checkAllTablesLoaded, false);
-                    tableMbeliH.ajax.reload(checkAllTablesLoaded, false);
-                    tableMbeliD.ajax.reload(checkAllTablesLoaded, false);
-                    tablePenjualanH.ajax.reload(checkAllTablesLoaded, false);
-                    tablePenjualanD.ajax.reload(checkAllTablesLoaded, false);
+                    swal({
+                        title: "Are you sure?",
+                        text: "Semua data akan di-load berdasarkan periode: " + selectedPeriode +" dan akan membutuhkan sedikit waktu.",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                        })
+                        .then((willFilter) => {
+                        if (willFilter) {
+                            toastr.info('Proses filtering data, mohon menunggu...');
+                            tablePelunasanHutang.ajax.reload(checkAllTablesLoaded, false);
+                            tablePelunasanHutangDetail.ajax.reload(checkAllTablesLoaded, false);
+                            tablePelunasanPiutang.ajax.reload(checkAllTablesLoaded, false);
+                            tablePelunasanPiutangDetail.ajax.reload(checkAllTablesLoaded, false);
+                            tableBank.ajax.reload(checkAllTablesLoaded, false);
+                            tableKas.ajax.reload(checkAllTablesLoaded, false);
+                            tableJurnalMemo.ajax.reload(checkAllTablesLoaded, false);
+                            tableApCnDn.ajax.reload(checkAllTablesLoaded, false);
+                            tableArCnDn.ajax.reload(checkAllTablesLoaded, false);
+                            tableTagihanKlaim.ajax.reload(checkAllTablesLoaded, false);
+                            tablePembayaranKlaim.ajax.reload(checkAllTablesLoaded, false);
+                            tablePembayaranPphKlaim.ajax.reload(checkAllTablesLoaded, false);
+                            tableSaldoAwalKlaim.ajax.reload(checkAllTablesLoaded, false);
+                            tableMApH.ajax.reload(checkAllTablesLoaded, false);
+                            tableMApD.ajax.reload(checkAllTablesLoaded, false);
+                            tableMArH.ajax.reload(checkAllTablesLoaded, false);
+                            tableMArD.ajax.reload(checkAllTablesLoaded, false);
+                            tableMbeliH.ajax.reload(checkAllTablesLoaded, false);
+                            tableMbeliD.ajax.reload(checkAllTablesLoaded, false);
+                            tablePenjualanH.ajax.reload(checkAllTablesLoaded, false);
+                            tablePenjualanD.ajax.reload(checkAllTablesLoaded, false);
+                        } else {
+                            $(this).prop('disabled', false);
+                            return;
+                        }
+                    });
                 } else if (filterTarget === 'pelunasanhutang') {
                     activateTab('#tab-0');
                     tablePelunasanHutang.ajax.reload(function() {
@@ -2609,24 +2626,38 @@
                     xhrFields: {
                         responseType: 'blob' // Menerima response sebagai blob
                     },
-                    success: function(blob) {
-                        // Buat URL objek dari blob
+                    success: function(blob, status, xhr) {
+                        // Get filename from the Content-Disposition header if available
+                        var filename;
+                        var disposition = xhr.getResponseHeader('Content-Disposition');
+
+                        if (disposition && disposition.indexOf('attachment') !== -1) {
+                            var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                            var matches = filenameRegex.exec(disposition);
+                            if (matches != null && matches[1]) {
+                                filename = matches[1].replace(/['"]/g, '');
+                            }
+                        }
+
+                        // If filename not found in header, use default
+                        if (!filename) {
+                            filename = downloadType + '_' + startDate + '_' + endDate + '.xlsx';
+                        }
+
+                        // Create a URL for the blob
                         var url = window.URL.createObjectURL(blob);
 
-                        // Buat elemen anchor untuk download
+                        // Create an anchor element for download
                         var a = document.createElement('a');
                         a.style.display = 'none';
                         a.href = url;
-
-                        // Tentukan nama file dari header Content-Disposition jika ada
-                        var filename = downloadType + '_' + startDate + '_' + endDate + '.xlsx';
                         a.download = filename;
 
-                        // Tambahkan ke DOM, klik, dan hapus
+                        // Add to DOM, click, and remove
                         document.body.appendChild(a);
                         a.click();
                         window.URL.revokeObjectURL(url);
-
+                        document.body.removeChild(a);
                         // Tampilkan notifikasi sukses
                         toastr.success('File berhasil didownload', 'Berhasil');
                         $('#btn-download').prop('disabled', false);
