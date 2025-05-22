@@ -200,6 +200,26 @@
                                     href="#tabpanel-arcndn" role="tab"
                                     aria-controls="tabpanel-arcndn" aria-selected="false">Expense AR CN/DN</a>
                             </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-9" data-bs-toggle="tab"
+                                    href="#tabpanel-tagihanklaim" role="tab"
+                                    aria-controls="tabpanel-tagihanklaim" aria-selected="false">Tagihan Klaim</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-10" data-bs-toggle="tab"
+                                    href="#tabpanel-pembayaranklaim" role="tab"
+                                    aria-controls="tabpanel-pembayaranklaim" aria-selected="false">Pembayaran Klaim</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-11" data-bs-toggle="tab"
+                                    href="#tabpanel-pembayaranpphklaim" role="tab"
+                                    aria-controls="tabpanel-pembayaranpphklaim" aria-selected="false">Pembayaran PPH Klaim</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-12" data-bs-toggle="tab"
+                                    href="#tabpanel-saldoawalklaim" role="tab"
+                                    aria-controls="tabpanel-saldoawalklaim" aria-selected="false">Saldo Awal Klaim</a>
+                            </li>
                         </ul>
                         <div class="tab-content pt-5" id="tab-content">
                             <div class="tab-pane active" id="tabpanel-pelunasanhutang" role="tabpanel"
@@ -509,6 +529,175 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="tab-pane" id="tabpanel-tagihanklaim" role="tabpanel"
+                                aria-labelledby="tabpanel-tagihanklaim">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-tagihanklaim">
+                                        <thead>
+                                            <tr>
+                                                <th>NOBUKTI</th>
+                                                <th>PRINCIPAL</th>
+                                                <th>NAMA_PRINCIPAL</th>
+                                                <th>DEPO</th>
+                                                <th>NAMA_DEPO</th>
+                                                <th>AREA</th>
+                                                <th>NAMA_AREA</th>
+                                                <th>DIVISI</th>
+                                                <th>NAMA_DIVISI</th>
+                                                <th>KATEGORI</th>
+                                                <th>TYPE</th>
+                                                <th>JENIS KLAIM</th>
+                                                <th>NAMA KLAIM</th>
+                                                <th>NO PROGRAM</th>
+                                                <th>PERIODE MULAI</th>
+                                                <th>PERIODE AKHIR</th>
+                                                <th>TGL PIUTANG KLAIM</th>
+                                                <th>TGL KIRIM KLAIM</th>
+                                                <th>NO KWITANSI</th>
+                                                <th>DPP</th>
+                                                <th>PPN</th>
+                                                <th>NILAI KLAIM</th>
+                                                <th>NO AKUN NILAI KLAIM</th>
+                                                <th>NO AKUN PPN KLAIM</th>
+                                                <th>NO AKUN DPP</th>
+                                                <th>AkunNilaiKlaim</th>
+                                                <th>AkunPpnKlaim</th>
+                                                <th>AkunDppKlaim</th>
+                                                <th>Nilai</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-pembayaranklaim" role="tabpanel"
+                                aria-labelledby="tabpanel-pembayaranklaim">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-pembayaranklaim">
+                                        <thead>
+                                            <tr>
+                                                <th>NOBUKTI</th>
+                                                <th>PRINCIPAL</th>
+                                                <th>NAMA_PRINCIPAL</th>
+                                                <th>DEPO</th>
+                                                <th>NAMA_DEPO</th>
+                                                <th>AREA</th>
+                                                <th>NAMA_AREA</th>
+                                                <th>DIVISI</th>
+                                                <th>NAMA_DIVISI</th>
+                                                <th>KATEGORI</th>
+                                                <th>TYPE</th>
+                                                <th>JENIS KLAIM</th>
+                                                <th>NAMA KLAIM</th>
+                                                <th>NO PROGRAM</th>
+                                                <th>PERIODE MULAI</th>
+                                                <th>PERIODE AKHIR</th>
+                                                <th>TGL KIRIM KLAIM</th>
+                                                <th>NO KWITANSI</th>
+                                                <th>TGL BAYAR</th>
+                                                <th>KET BAYAR</th>
+                                                <th>DPP</th>
+                                                <th>PPN</th>
+                                                <th>NILAI KLAIM</th>
+                                                <th>TOTAL BAYAR</th>
+                                                <th>NoAkunBank</th>
+                                                <th>NamaAkunBank</th>
+                                                <th>NoAkunLawan</th>
+                                                <th>NamaAkunLawan</th>
+                                                <th>Jenis(Keluar/Masuk)</th>
+                                                <th>NoAkunBankLengkap</th>
+                                                <th>NoAkunLawanLengkap</th>
+                                                <th>Nilai</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-pembayaranpphklaim" role="tabpanel"
+                                aria-labelledby="tabpanel-pembayaranpphklaim">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-pembayaranpphklaim">
+                                        <thead>
+                                            <tr>
+                                                <th>NOBUKTI</th>
+                                                <th>PRINCIPAL</th>
+                                                <th>NAMA_PRINCIPAL</th>
+                                                <th>DEPO</th>
+                                                <th>NAMA_DEPO</th>
+                                                <th>AREA</th>
+                                                <th>NAMA_AREA</th>
+                                                <th>DIVISI</th>
+                                                <th>NAMA_DIVISI</th>
+                                                <th>KATEGORI</th>
+                                                <th>TYPE</th>
+                                                <th>JENIS KLAIM</th>
+                                                <th>NAMA KLAIM</th>
+                                                <th>NO PROGRAM</th>
+                                                <th>PERIODE MULAI</th>
+                                                <th>PERIODE AKHIR</th>
+                                                <th>TGL KIRIM KLAIM</th>
+                                                <th>NO KWITANSI</th>
+                                                <th>TGL BAYAR</th>
+                                                <th>KET BAYAR</th>
+                                                <th>DPP</th>
+                                                <th>PPN</th>
+                                                <th>NILAI KLAIM</th>
+                                                <th>PENERIMAAN PPH</th>
+                                                <th>NoAkunBank</th>
+                                                <th>NamaAkunBank</th>
+                                                <th>NoAkunLawan</th>
+                                                <th>NamaAkunLawan</th>
+                                                <th>Jenis(Keluar/Masuk)</th>
+                                                <th>NoAkunBankLengkap</th>
+                                                <th>NoAkunLawanLengkap</th>
+                                                <th>Nilai</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-saldoawalklaim" role="tabpanel"
+                                aria-labelledby="tabpanel-saldoawalklaim">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-saldoawalklaim">
+                                        <thead>
+                                            <tr>
+                                                <th>PRINCIPAL</th>
+                                                <th>NAMA_PRINCIPAL</th>
+                                                <th>DEPO</th>
+                                                <th>NAMA_DEPO</th>
+                                                <th>AREA</th>
+                                                <th>NAMA_AREA</th>
+                                                <th>DIVISI</th>
+                                                <th>NAMA_DIVISI</th>
+                                                <th>KATEGORI</th>
+                                                <th>TYPE</th>
+                                                <th>JENIS KLAIM</th>
+                                                <th>NAMA KLAIM</th>
+                                                <th>NO PROGRAM</th>
+                                                <th>PERIODE MULAI</th>
+                                                <th>PERIODE AKHIR</th>
+                                                <th>SELISIH</th>
+                                                <th>NOAKUN</th>
+                                                <th>NAMAAKUN</th>
+                                                <th>Nilai</th>
+                                                <th>NoAkunLengkap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -543,7 +732,9 @@
 
         $(document).ready(function() {
             var tablePelunasanHutang, tablePelunasanHutangDetail, tablePelunasanPiutang,
-            tablePelunasanPiutangDetail, tableBank, tableKas, tableJurnalMemo, tableApCnDn, tableArCnDn;
+            tablePelunasanPiutangDetail, tableBank, tableKas, tableJurnalMemo,
+            tableApCnDn, tableArCnDn, tableTagihanKlaim, tablePembayaranKlaim, tablePembayaranPphKlaim,
+            tableSaldoAwalKlaim;
 
             tablePelunasanHutang = $('#table-pelunasanhutang').DataTable({
                 processing: true,
@@ -1224,6 +1415,347 @@
                 }
             });
 
+            tableTagihanKlaim = $('#table-tagihanklaim').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'tagihanklaim';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: [
+                    { data: "NOBUKTI", name: "NOBUKTI" },
+                    { data: "PRINCIPAL", name: "PRINCIPAL" },
+                    { data: "NAMA_PRINCIPAL", name: "NAMA_PRINCIPAL" },
+                    { data: "DEPO", name: "DEPO" },
+                    { data: "NAMA_DEPO", name: "NAMA_DEPO" },
+                    { data: "AREA", name: "AREA" },
+                    { data: "NAMA_AREA", name: "NAMA_AREA" },
+                    { data: "DIVISI", name: "DIVISI" },
+                    { data: "NAMA_DIVISI", name: "NAMA_DIVISI" },
+                    { data: "KATEGORI", name: "KATEGORI" },
+                    { data: "TYPE", name: "TYPE" },
+                    { data: "JENIS KLAIM", name: "JENIS KLAIM" },
+                    { data: "NAMA KLAIM", name: "NAMA KLAIM" },
+                    { data: "NO PROGRAM", name: "NO PROGRAM" },
+                    { data: "PERIODE MULAI", name: "PERIODE MULAI" },
+                    { data: "PERIODE AKHIR", name: "PERIODE AKHIR" },
+                    { data: "TGL PIUTANG KLAIM", name: "TGL PIUTANG KLAIM" },
+                    { data: "TGL KIRIM KLAIM", name: "TGL KIRIM KLAIM" },
+                    { data: "NO KWITANSI", name: "NO KWITANSI" },
+                    { data: "DPP", name: "DPP" },
+                    { data: "PPN", name: "PPN" },
+                    { data: "NILAI KLAIM", name: "NILAI KLAIM" },
+                    { data: "NO AKUN NILAI KLAIM", name: "NO AKUN NILAI KLAIM" },
+                    { data: "NO AKUN PPN KLAIM", name: "NO AKUN PPN KLAIM" },
+                    { data: "NO AKUN DPP", name: "NO AKUN DPP" },
+                    { data: "AkunNilaiKlaim", name: "AkunNilaiKlaim" },
+                    { data: "AkunPpnKlaim", name: "AkunPpnKlaim" },
+                    { data: "AkunDppKlaim", name: "AkunDppKlaim" },
+                    { data: "Nilai", name: "Nilai" },
+                ],
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                "pageLength": 25,
+                "language": {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableTagihanKlaim.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tablePembayaranKlaim = $('#table-pembayaranklaim').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'pembayaranklaim';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: [
+                    { data: "NOBUKTI", name: "NOBUKTI" },
+                    { data: "PRINCIPAL", name: "PRINCIPAL" },
+                    { data: "NAMA_PRINCIPAL", name: "NAMA_PRINCIPAL" },
+                    { data: "DEPO", name: "DEPO" },
+                    { data: "NAMA_DEPO", name: "NAMA_DEPO" },
+                    { data: "AREA", name: "AREA" },
+                    { data: "NAMA_AREA", name: "NAMA_AREA" },
+                    { data: "DIVISI", name: "DIVISI" },
+                    { data: "NAMA_DIVISI", name: "NAMA_DIVISI" },
+                    { data: "KATEGORI", name: "KATEGORI" },
+                    { data: "TYPE", name: "TYPE" },
+                    { data: "JENIS KLAIM", name: "JENIS KLAIM" },
+                    { data: "NAMA KLAIM", name: "NAMA KLAIM" },
+                    { data: "NO PROGRAM", name: "NO PROGRAM" },
+                    { data: "PERIODE MULAI", name: "PERIODE MULAI" },
+                    { data: "PERIODE AKHIR", name: "PERIODE AKHIR" },
+                    { data: "TGL KIRIM KLAIM", name: "TGL KIRIM KLAIM" },
+                    { data: "NO KWITANSI", name: "NO KWITANSI" },
+                    { data: "TGL BAYAR", name: "TGL BAYAR" },
+                    { data: "KET BAYAR", name: "KET BAYAR" },
+                    { data: "DPP", name: "DPP" },
+                    { data: "PPN", name: "PPN" },
+                    { data: "NILAI KLAIM", name: "NILAI KLAIM" },
+                    { data: "TOTAL BAYAR", name: "TOTAL BAYAR" },
+                    { data: "NoAkunBank", name: "NoAkunBank" },
+                    { data: "NamaAkunBank", name: "NamaAkunBank" },
+                    { data: "NoAkunLawan", name: "NoAkunLawan" },
+                    { data: "NamaAkunLawan", name: "NamaAkunLawan" },
+                    { data: "Jenis(Keluar/Masuk)", name: "Jenis(Keluar/Masuk)" },
+                    { data: "NoAkunBankLengkap", name: "NoAkunBankLengkap" },
+                    { data: "NoAkunLawanLengkap", name: "NoAkunLawanLengkap" },
+                    { data: "Nilai", name: "Nilai" },
+                ],
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                "pageLength": 25,
+                "language": {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tablePembayaranKlaim.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tablePembayaranPphKlaim = $('#table-pembayaranpphklaim').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'pembayaranpphklaim';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: [
+                    { data: "NOBUKTI", name: "NOBUKTI" },
+                    { data: "PRINCIPAL", name: "PRINCIPAL" },
+                    { data: "NAMA_PRINCIPAL", name: "NAMA_PRINCIPAL" },
+                    { data: "DEPO", name: "DEPO" },
+                    { data: "NAMA_DEPO", name: "NAMA_DEPO" },
+                    { data: "AREA", name: "AREA" },
+                    { data: "NAMA_AREA", name: "NAMA_AREA" },
+                    { data: "DIVISI", name: "DIVISI" },
+                    { data: "NAMA_DIVISI", name: "NAMA_DIVISI" },
+                    { data: "KATEGORI", name: "KATEGORI" },
+                    { data: "TYPE", name: "TYPE" },
+                    { data: "JENIS KLAIM", name: "JENIS KLAIM" },
+                    { data: "NAMA KLAIM", name: "NAMA KLAIM" },
+                    { data: "NO PROGRAM", name: "NO PROGRAM" },
+                    { data: "PERIODE MULAI", name: "PERIODE MULAI" },
+                    { data: "PERIODE AKHIR", name: "PERIODE AKHIR" },
+                    { data: "TGL KIRIM KLAIM", name: "TGL KIRIM KLAIM" },
+                    { data: "NO KWITANSI", name: "NO KWITANSI" },
+                    { data: "TGL BAYAR", name: "TGL BAYAR" },
+                    { data: "KET BAYAR", name: "KET BAYAR" },
+                    { data: "DPP", name: "DPP" },
+                    { data: "PPN", name: "PPN" },
+                    { data: "NILAI KLAIM", name: "NILAI KLAIM" },
+                    { data: "PENERIMAAN PPH", name: "PENERIMAAN PPH" },
+                    { data: "NoAkunBank", name: "NoAkunBank" },
+                    { data: "NamaAkunBank", name: "NamaAkunBank" },
+                    { data: "NoAkunLawan", name: "NoAkunLawan" },
+                    { data: "NamaAkunLawan", name: "NamaAkunLawan" },
+                    { data: "Jenis(Keluar/Masuk)", name: "Jenis(Keluar/Masuk)" },
+                    { data: "NoAkunBankLengkap", name: "NoAkunBankLengkap" },
+                    { data: "NoAkunLawanLengkap", name: "NoAkunLawanLengkap" },
+                    { data: "Nilai", name: "Nilai" },
+                ],
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                "pageLength": 25,
+                "language": {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tablePembayaranPphKlaim.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tableSaldoAwalKlaim = $('#table-saldoawalklaim').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'saldoawalklaim';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: [
+                    { data: "PRINCIPAL", name: "PRINCIPAL" },
+                    { data: "NAMA_PRINCIPAL", name: "NAMA_PRINCIPAL" },
+                    { data: "DEPO", name: "DEPO" },
+                    { data: "NAMA_DEPO", name: "NAMA_DEPO" },
+                    { data: "AREA", name: "AREA" },
+                    { data: "NAMA_AREA", name: "NAMA_AREA" },
+                    { data: "DIVISI", name: "DIVISI" },
+                    { data: "NAMA_DIVISI", name: "NAMA_DIVISI" },
+                    { data: "KATEGORI", name: "KATEGORI" },
+                    { data: "TYPE", name: "TYPE" },
+                    { data: "JENIS KLAIM", name: "JENIS KLAIM" },
+                    { data: "NAMA KLAIM", name: "NAMA KLAIM" },
+                    { data: "NO PROGRAM", name: "NO PROGRAM" },
+                    { data: "PERIODE MULAI", name: "PERIODE MULAI" },
+                    { data: "PERIODE AKHIR", name: "PERIODE AKHIR" },
+                    { data: "SELISIH", name: "SELISIH" },
+                    { data: "NOAKUN", name: "NOAKUN" },
+                    { data: "NAMAAKUN", name: "NAMAAKUN" },
+                    { data: "Nilai", name: "Nilai" },
+                    { data: "NoAkunLengkap", name: "NoAkunLengkap" },
+                ],
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                "pageLength": 25,
+                "language": {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableSaldoAwalKlaim.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
             function activateTab(tabId) {
                 var tabEl = document.querySelector(tabId);
                 var tab = new bootstrap.Tab(tabEl);
@@ -1248,7 +1780,7 @@
 
                 if (filterTarget === 'all') {
                     var reloadCounter = 0;
-                    var totalTables = 9; // Jumlah tabel yang akan di-reload
+                    var totalTables = 13; // Jumlah tabel yang akan di-reload
 
                     function checkAllTablesLoaded() {
                         reloadCounter++;
@@ -1266,6 +1798,10 @@
                     tableJurnalMemo.ajax.reload(checkAllTablesLoaded, false);
                     tableApCnDn.ajax.reload(checkAllTablesLoaded, false);
                     tableArCnDn.ajax.reload(checkAllTablesLoaded, false);
+                    tableTagihanKlaim.ajax.reload(checkAllTablesLoaded, false);
+                    tablePembayaranKlaim.ajax.reload(checkAllTablesLoaded, false);
+                    tablePembayaranPphKlaim.ajax.reload(checkAllTablesLoaded, false);
+                    tableSaldoAwalKlaim.ajax.reload(checkAllTablesLoaded, false);
                 } else if (filterTarget === 'pelunasanhutang') {
                     activateTab('#tab-0');
                     tablePelunasanHutang.ajax.reload(function() {
@@ -1327,6 +1863,34 @@
                     tableArCnDn.ajax.reload(function() {
                         showSuccessToast(
                             'Data Expense AR CN/DN berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'tagihanklaim') {
+                    activateTab('#tab-9');
+                    tableTagihanKlaim.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Tagihan Klaim berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'pembayaranklaim') {
+                    activateTab('#tab-10');
+                    tablePembayaranKlaim.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Pembayaran Kalim berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'pembayaranpphklaim') {
+                    activateTab('#tab-11');
+                    tablePembayaranPphKlaim.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Pembayaran PPH Klaim berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'saldoawalklaim') {
+                    activateTab('#tab-12');
+                    tableSaldoAwalKlaim.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Saldo Awal Klaim berhasil difilter berdasarkan periode: ' +
                             selectedPeriode);
                     }, false);
                 }

@@ -11,6 +11,10 @@ use App\Exports\PelunasanHutangDExport;
 use App\Exports\PelunasanHutangExport;
 use App\Exports\PelunasanPiutangDExport;
 use App\Exports\PelunasanPiutangExport;
+use App\Exports\PembayaranKlaimExport;
+use App\Exports\PembayaranPphKlaimExport;
+use App\Exports\SaldoAwalKlaimExport;
+use App\Exports\TagihanKlaimExport;
 use App\Models\ExpenseApCnDn;
 use App\Models\ExpenseArCnDn;
 use App\Models\ExpenseBank;
@@ -20,6 +24,10 @@ use App\Models\ExpensePelunasanHutang;
 use App\Models\ExpensePelunasanHutangD;
 use App\Models\ExpensePelunasanPiutang;
 use App\Models\ExpensePelunasanPiutangD;
+use App\Models\PembayaranKlaim;
+use App\Models\PembayaranPphKlaim;
+use App\Models\SaldoAwalKlaim;
+use App\Models\TagihanKlaim;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -67,6 +75,17 @@ class MigrationController extends Controller
             } elseif ($tipe == 'arcndn') {
                 $query = ExpenseArCnDn::query()
                     ->whereBetween('Tgl', [$startDate, $endDate]);
+            } elseif ($tipe == 'tagihanklaim') {
+                $query = TagihanKlaim::query()
+                    ->whereBetween('TGL PIUTANG KLAIM', [$startDate, $endDate]);
+            } elseif ($tipe == 'pembayaranklaim') {
+                $query = PembayaranKlaim::query()
+                    ->whereBetween('TGL BAYAR', [$startDate, $endDate]);
+            } elseif ($tipe == 'pembayaranpphklaim') {
+                $query = PembayaranPphKlaim::query()
+                    ->whereBetween('TGL BAYAR', [$startDate, $endDate]);
+            } elseif ($tipe == 'saldoawalklaim') {
+                $query = SaldoAwalKlaim::query();
             } else {
                 return response()->json([
                     'draw' => intval($request->input('draw', 1)),
@@ -98,13 +117,7 @@ class MigrationController extends Controller
                             ->orWhere('NamaCustomer', 'like', "%{$searchValue}%");
                     });
                 }
-                if ($tipe == 'pelunasanhutangd') {
-                    $query->where(function ($q) use ($searchValue) {
-                        $q->where('NoBukti', 'like', "%{$searchValue}%")
-                            ->orWhere('NoInvoice', 'like', "%{$searchValue}%");
-                    });
-                }
-                if ($tipe == 'pelunasanpiutangd') {
+                if ($tipe == 'pelunasanhutangd' || $tipe == 'pelunasanpiutangd') {
                     $query->where(function ($q) use ($searchValue) {
                         $q->where('NoBukti', 'like', "%{$searchValue}%")
                             ->orWhere('NoInvoice', 'like', "%{$searchValue}%");
@@ -123,20 +136,35 @@ class MigrationController extends Controller
                             ->orWhere('NoBuktiRef', 'like', "%{$searchValue}%");
                     });
                 }
-                if ($tipe == 'jurnalmemo') {
+                if ($tipe == 'jurnalmemo' || $tipe == 'apcndn' || $tipe == 'arcndn') {
                     $query->where(function ($q) use ($searchValue) {
                         $q->where('NoBukti', 'like', "%{$searchValue}%");
                     });
                 }
-                if ($tipe == 'apcndn') {
+                if ($tipe == 'tagihanklaim' || $tipe == 'pembayaranklaim' || $tipe == 'pembayaranpphklaim') {
                     $query->where(function ($q) use ($searchValue) {
-                        $q->where('NoBukti', 'like', "%{$searchValue}%");
+                        $q->where('NOBUKTI', 'like', "%{$searchValue}%")
+                            ->orWhere('PRINCIPAL', 'like', "%{$searchValue}%")
+                            ->orWhere('NAMA_PRINCIPAL', 'like', "%{$searchValue}%")
+                            ->orWhere('DEPO', 'like', "%{$searchValue}%")
+                            ->orWhere('NAMA_DEPO', 'like', "%{$searchValue}%");
                     });
                 }
-                if ($tipe == 'arcndn') {
+                if ($tipe == 'saldoawalklaim') {
                     $query->where(function ($q) use ($searchValue) {
-                        $q->where('NoBukti', 'like', "%{$searchValue}%");
+                        $q->where('NOBUKTI', 'like', "%{$searchValue}%")
+                            ->orWhere('PRINCIPAL', 'like', "%{$searchValue}%")
+                            ->orWhere('NAMA_PRINCIPAL', 'like', "%{$searchValue}%")
+                            ->orWhere('DEPO', 'like', "%{$searchValue}%")
+                            ->orWhere('NAMA_DEPO', 'like', "%{$searchValue}%");
                     });
+                }
+            }
+
+            // Column specific filters
+            foreach ($request->get('columns') as $column) {
+                if (!empty($column['search']['value'])) {
+                    $query->where($column['data'], 'like', "%{$column['search']['value']}%");
                 }
             }
 
@@ -202,6 +230,14 @@ class MigrationController extends Controller
                 return Excel::download(new ApCnDnExport($startDate, $endDate), "Expense_AP_CNDN_{$startDate}_{$endDate}.xlsx");
             } elseif ($tipe == 'arcndn') {
                 return Excel::download(new ArCnDnExport($startDate, $endDate), "Expense_AR_CNDN_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'tagihanklaim') {
+                return Excel::download(new TagihanKlaimExport($startDate, $endDate), "Data_Tagihan_Klaim_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'pembayaranklaim') {
+                return Excel::download(new PembayaranKlaimExport($startDate, $endDate), "Data_Pembayaran_Klaim_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'pembayaranpphklaim') {
+                return Excel::download(new PembayaranPphKlaimExport($startDate, $endDate), "Data_PembayaranPPH_Klaim_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'saldoawalklaim') {
+                return Excel::download(new SaldoAwalKlaimExport($startDate, $endDate), "Saldo_Awal_Klaim_{$startDate}_{$endDate}.xlsx");
             }
         } catch (\Throwable $th) {
             return response()->json([
