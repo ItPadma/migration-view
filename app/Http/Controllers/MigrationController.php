@@ -59,6 +59,19 @@ class MigrationController extends Controller
 {
     public function index()
     {
+        $column_pelunasanhutang = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_PelunasanHutang'));
+        $column_pelunasanhutangd = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_PelunasanHutangD'));
+        $column_pelunasanpiutang = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_PelunasanPiutang'));
+        $column_pelunasanpiutangd = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_PelunasanPiutangD'));
+        $column_bank = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_Bank'));
+        $column_kas = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_Kas'));
+        $column_jurnalmemo = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_Jurnal_Memo'));
+        $column_apcndn = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_AP_CNDN'));
+        $column_arcndn = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Expense_AR_CNDN'));
+        $column_tagihanklaim = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Data_Tagihan_Klaim'));
+        $column_pembayaranklaim = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Data_Pembayaran_Klaim'));
+        $column_pembayaranpphklaim = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Data_Pembayaran_PPH_Klaim'));
+        $column_saldoawalklaim = DB::connection('sqlsrv_252')->select($this->tableDefQuery('Data_Saldo_Awal_Klaim'));
         $column_maph = DB::connection('sqlsrv_252')->select($this->tableDefQuery('MApH'));
         $column_mapd = DB::connection('sqlsrv_252')->select($this->tableDefQuery('MAPD'));
         $column_marh = DB::connection('sqlsrv_252')->select($this->tableDefQuery('MArH'));
@@ -73,6 +86,84 @@ class MigrationController extends Controller
         $column_mutasid = DB::connection('sqlsrv_252')->select($this->tableDefQuery('TempMutasiD'));
 
         $config = [
+            'pelunasanhutang' => [
+                'columns' => $column_pelunasanhutang,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'pelunasanhutangd' => [
+                'columns' => $column_pelunasanhutangd,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'pelunasanpiutang' => [
+                'columns' => $column_pelunasanpiutang,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'pelunasanpiutangd' => [
+                'columns' => $column_pelunasanpiutangd,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'bank' => [
+                'columns' => $column_bank,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'kas' => [
+                'columns' => $column_kas,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'jurnalmemo' => [
+                'columns' => $column_jurnalmemo,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'apcndn' => [
+                'columns' => $column_apcndn,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'arcndn' => [
+                'columns' => $column_arcndn,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'tagihanklaim' => [
+                'columns' => $column_tagihanklaim,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'pembayaranklaim' => [
+                'columns' => $column_pembayaranklaim,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'pembayaranpphklaim' => [
+                'columns' => $column_pembayaranpphklaim,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'saldoawalklaim' => [
+                'columns' => $column_saldoawalklaim,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
             'maph' => [
                 'columns' => $column_maph,
                 'pageLength' => 25,

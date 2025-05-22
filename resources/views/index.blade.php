@@ -304,34 +304,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-pelunasanhutang">
                                         <thead>
-                                            <tr>
-                                                <th>Tgl</th>
-                                                <th>NoBukti</th>
-                                                <th>NoBuktiRef</th>
-                                                <th>NoBuktiFAS</th>
-                                                <th>PT</th>
-                                                <th>NamaPT</th>
-                                                <th>PRINCIPLE</th>
-                                                <th>NamaPrinciple</th>
-                                                <th>DEPO</th>
-                                                <th>NamaDepo</th>
-                                                <th>KodeArea</th>
-                                                <th>NamaArea</th>
-                                                <th>KodeDivisi</th>
-                                                <th>NamaDivisi</th>
-                                                <th>KodePemasok</th>
-                                                <th>NamaPemasok</th>
-                                                <th>NoFaktur</th>
-                                                <th>TglFaktur</th>
-                                                <th>NominalPelunasan</th>
-                                                <th>Jenis</th>
-                                                <th>NoAkun</th>
-                                                <th>NamaAkun</th>
-                                                <th>NoAkunLawan</th>
-                                                <th>NamaAkunLawan</th>
-                                                <th>NoAkunLengkap</th>
-                                                <th>NoAkunLawanLengkap</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -344,11 +317,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-pelunasanhutangdetail">
                                         <thead>
-                                            <tr>
-                                                <th>NoBukti</th>
-                                                <th>NoInvoice</th>
-                                                <th>NominalPelunasan</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -361,34 +330,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-pelunasanpiutang">
                                         <thead>
-                                            <tr>
-                                                <th>Tgl</th>
-                                                <th>NoBukti</th>
-                                                <th>NoBuktiRef</th>
-                                                <th>NoBuktiFAS</th>
-                                                <th>PT</th>
-                                                <th>NamaPT</th>
-                                                <th>PRINCIPLE</th>
-                                                <th>NamaPrinciple</th>
-                                                <th>DEPO</th>
-                                                <th>NamaDepo</th>
-                                                <th>KodeArea</th>
-                                                <th>NamaArea</th>
-                                                <th>KodeDivisi</th>
-                                                <th>NamaDivisi</th>
-                                                <th>KodePemasok</th>
-                                                <th>NamaPemasok</th>
-                                                <th>NoFaktur</th>
-                                                <th>TglFaktur</th>
-                                                <th>NominalPelunasan</th>
-                                                <th>Jenis</th>
-                                                <th>NoAkun</th>
-                                                <th>NamaAkun</th>
-                                                <th>NoAkunLawan</th>
-                                                <th>NamaAkunLawan</th>
-                                                <th>NoAkunLengkap</th>
-                                                <th>NoAkunLawanLengkap</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -401,11 +343,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-pelunasanpiutangdetail">
                                         <thead>
-                                            <tr>
-                                                <th>NoBukti</th>
-                                                <th>NoInvoice</th>
-                                                <th>NominalPelunasan</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -418,35 +356,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-bank">
                                         <thead>
-                                            <tr>
-                                                <th>Tgl</th>
-                                                <th>NoBukti</th>
-                                                <th>NomorRecord</th>
-                                                <th>NomorKitir</th>
-                                                <th>PT</th>
-                                                <th>NamaPT</th>
-                                                <th>PRINCIPLE</th>
-                                                <th>NamaPrinciple</th>
-                                                <th>DEPO</th>
-                                                <th>NamaDepo</th>
-                                                <th>KodeArea</th>
-                                                <th>NamaArea</th>
-                                                <th>KodeDivisi</th>
-                                                <th>NamaDivisi</th>
-                                                <th>NomorRekening</th>
-                                                <th>Kategori</th>
-                                                <th>NoAkunBank</th>
-                                                <th>NamaAkunBank</th>
-                                                <th>NoAkunLawan</th>
-                                                <th>NamaAkunLawan</th>
-                                                <th>Jenis(Keluar/Masuk)</th>
-                                                <th>Keterangan</th>
-                                                <th>Nilai</th>
-                                                <th>Debet</th>
-                                                <th>Kredit</th>
-                                                <th>NoAkunBankLengkap</th>
-                                                <th>NoAkunLawanLengkap</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -459,34 +369,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-kas">
                                         <thead>
-                                            <tr>
-                                                <th>Tgl</th>
-                                                <th>NoBukti</th>
-                                                <th>NoBuktiRef</th>
-                                                <th>PT</th>
-                                                <th>NamaPT</th>
-                                                <th>PRINCIPLE</th>
-                                                <th>NamaPrinciple</th>
-                                                <th>DEPO</th>
-                                                <th>NamaDepo</th>
-                                                <th>KodeArea</th>
-                                                <th>NamaArea</th>
-                                                <th>KodeDivisi</th>
-                                                <th>NamaDivisi</th>
-                                                <th>NoRekeningBank</th>
-                                                <th>Kategori</th>
-                                                <th>NoAkunBank</th>
-                                                <th>NamaAkunBank</th>
-                                                <th>NoAkunLawan</th>
-                                                <th>NamaAkunLawan</th>
-                                                <th>Jenis(Keluar/Masuk)</th>
-                                                <th>Keterangan</th>
-                                                <th>Nilai</th>
-                                                <th>Debet</th>
-                                                <th>Kredit</th>
-                                                <th>NoAkunBankLengkap</th>
-                                                <th>NoAkunLawanLengkap</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -499,28 +382,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-jurnalmemo">
                                         <thead>
-                                            <tr>
-                                                <th>Tgl</th>
-                                                <th>NoBukti</th>
-                                                <th>NoRef</th>
-                                                <th>PT</th>
-                                                <th>NamaPT</th>
-                                                <th>PRINCIPLE</th>
-                                                <th>NamaPrinciple</th>
-                                                <th>DEPO</th>
-                                                <th>NamaDepo</th>
-                                                <th>KodeArea</th>
-                                                <th>NamaArea</th>
-                                                <th>KodeDivisi</th>
-                                                <th>NamaDivisi</th>
-                                                <th>Kategori</th>
-                                                <th>NoAkun</th>
-                                                <th>NamaAkun</th>
-                                                <th>Keterangan</th>
-                                                <th>Debet</th>
-                                                <th>Kredit</th>
-                                                <th>NoAkunLengkap</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -533,34 +395,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-apcndn">
                                         <thead>
-                                            <tr>
-                                                <th>Tgl</th>
-                                                <th>NoBukti</th>
-                                                <th>NoBuktiFAS</th>
-                                                <th>PT</th>
-                                                <th>NamaPT</th>
-                                                <th>PRINCIPLE</th>
-                                                <th>NamaPrinciple</th>
-                                                <th>DEPO</th>
-                                                <th>NamaDepo</th>
-                                                <th>KodeArea</th>
-                                                <th>NamaArea</th>
-                                                <th>KodeDivisi</th>
-                                                <th>NamaDivisi</th>
-                                                <th>KodePemasok</th>
-                                                <th>NamaPemasok</th>
-                                                <th>NoFaktur</th>
-                                                <th>TglFaktur</th>
-                                                <th>Nilai</th>
-                                                <th>Jenis</th>
-                                                <th>NoAkun</th>
-                                                <th>NamaAkun</th>
-                                                <th>NoAkunLawan</th>
-                                                <th>NamaAkunLawan</th>
-                                                <th>Jenis(Keluar/Masuk)</th>
-                                                <th>NoAkunLengkap</th>
-                                                <th>NoAkunLawanLengkap</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -573,32 +408,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-arcndn">
                                         <thead>
-                                            <tr>
-                                                <th>Tgl</th>
-                                                <th>NoBukti</th>
-                                                <th>NoBuktiFAS</th>
-                                                <th>PT</th>
-                                                <th>NamaPT</th>
-                                                <th>PRINCIPLE</th>
-                                                <th>NamaPrinciple</th>
-                                                <th>DEPO</th>
-                                                <th>NamaDepo</th>
-                                                <th>KodeArea</th>
-                                                <th>NamaArea</th>
-                                                <th>KodeCustomer</th>
-                                                <th>NamaCustomer</th>
-                                                <th>NoFaktur</th>
-                                                <th>TglFaktur</th>
-                                                <th>Nilai</th>
-                                                <th>Jenis</th>
-                                                <th>NoAkun</th>
-                                                <th>NamaAkun</th>
-                                                <th>NoAkunLawan</th>
-                                                <th>NamaAkunLawan</th>
-                                                <th>Jenis(Keluar/Masuk)</th>
-                                                <th>NoAkunLengkap</th>
-                                                <th>NoAkunLawanLengkap</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -611,37 +421,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-tagihanklaim">
                                         <thead>
-                                            <tr>
-                                                <th>NOBUKTI</th>
-                                                <th>PRINCIPAL</th>
-                                                <th>NAMA_PRINCIPAL</th>
-                                                <th>DEPO</th>
-                                                <th>NAMA_DEPO</th>
-                                                <th>AREA</th>
-                                                <th>NAMA_AREA</th>
-                                                <th>DIVISI</th>
-                                                <th>NAMA_DIVISI</th>
-                                                <th>KATEGORI</th>
-                                                <th>TYPE</th>
-                                                <th>JENIS KLAIM</th>
-                                                <th>NAMA KLAIM</th>
-                                                <th>NO PROGRAM</th>
-                                                <th>PERIODE MULAI</th>
-                                                <th>PERIODE AKHIR</th>
-                                                <th>TGL PIUTANG KLAIM</th>
-                                                <th>TGL KIRIM KLAIM</th>
-                                                <th>NO KWITANSI</th>
-                                                <th>DPP</th>
-                                                <th>PPN</th>
-                                                <th>NILAI KLAIM</th>
-                                                <th>NO AKUN NILAI KLAIM</th>
-                                                <th>NO AKUN PPN KLAIM</th>
-                                                <th>NO AKUN DPP</th>
-                                                <th>AkunNilaiKlaim</th>
-                                                <th>AkunPpnKlaim</th>
-                                                <th>AkunDppKlaim</th>
-                                                <th>Nilai</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -654,40 +434,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-pembayaranklaim">
                                         <thead>
-                                            <tr>
-                                                <th>NOBUKTI</th>
-                                                <th>PRINCIPAL</th>
-                                                <th>NAMA_PRINCIPAL</th>
-                                                <th>DEPO</th>
-                                                <th>NAMA_DEPO</th>
-                                                <th>AREA</th>
-                                                <th>NAMA_AREA</th>
-                                                <th>DIVISI</th>
-                                                <th>NAMA_DIVISI</th>
-                                                <th>KATEGORI</th>
-                                                <th>TYPE</th>
-                                                <th>JENIS KLAIM</th>
-                                                <th>NAMA KLAIM</th>
-                                                <th>NO PROGRAM</th>
-                                                <th>PERIODE MULAI</th>
-                                                <th>PERIODE AKHIR</th>
-                                                <th>TGL KIRIM KLAIM</th>
-                                                <th>NO KWITANSI</th>
-                                                <th>TGL BAYAR</th>
-                                                <th>KET BAYAR</th>
-                                                <th>DPP</th>
-                                                <th>PPN</th>
-                                                <th>NILAI KLAIM</th>
-                                                <th>TOTAL BAYAR</th>
-                                                <th>NoAkunBank</th>
-                                                <th>NamaAkunBank</th>
-                                                <th>NoAkunLawan</th>
-                                                <th>NamaAkunLawan</th>
-                                                <th>Jenis(Keluar/Masuk)</th>
-                                                <th>NoAkunBankLengkap</th>
-                                                <th>NoAkunLawanLengkap</th>
-                                                <th>Nilai</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -700,40 +447,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-pembayaranpphklaim">
                                         <thead>
-                                            <tr>
-                                                <th>NOBUKTI</th>
-                                                <th>PRINCIPAL</th>
-                                                <th>NAMA_PRINCIPAL</th>
-                                                <th>DEPO</th>
-                                                <th>NAMA_DEPO</th>
-                                                <th>AREA</th>
-                                                <th>NAMA_AREA</th>
-                                                <th>DIVISI</th>
-                                                <th>NAMA_DIVISI</th>
-                                                <th>KATEGORI</th>
-                                                <th>TYPE</th>
-                                                <th>JENIS KLAIM</th>
-                                                <th>NAMA KLAIM</th>
-                                                <th>NO PROGRAM</th>
-                                                <th>PERIODE MULAI</th>
-                                                <th>PERIODE AKHIR</th>
-                                                <th>TGL KIRIM KLAIM</th>
-                                                <th>NO KWITANSI</th>
-                                                <th>TGL BAYAR</th>
-                                                <th>KET BAYAR</th>
-                                                <th>DPP</th>
-                                                <th>PPN</th>
-                                                <th>NILAI KLAIM</th>
-                                                <th>PENERIMAAN PPH</th>
-                                                <th>NoAkunBank</th>
-                                                <th>NamaAkunBank</th>
-                                                <th>NoAkunLawan</th>
-                                                <th>NamaAkunLawan</th>
-                                                <th>Jenis(Keluar/Masuk)</th>
-                                                <th>NoAkunBankLengkap</th>
-                                                <th>NoAkunLawanLengkap</th>
-                                                <th>Nilai</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -746,28 +460,7 @@
                                     <table class="table table-striped table-bordered table-hover"
                                         id="table-saldoawalklaim">
                                         <thead>
-                                            <tr>
-                                                <th>PRINCIPAL</th>
-                                                <th>NAMA_PRINCIPAL</th>
-                                                <th>DEPO</th>
-                                                <th>NAMA_DEPO</th>
-                                                <th>AREA</th>
-                                                <th>NAMA_AREA</th>
-                                                <th>DIVISI</th>
-                                                <th>NAMA_DIVISI</th>
-                                                <th>KATEGORI</th>
-                                                <th>TYPE</th>
-                                                <th>JENIS KLAIM</th>
-                                                <th>NAMA KLAIM</th>
-                                                <th>NO PROGRAM</th>
-                                                <th>PERIODE MULAI</th>
-                                                <th>PERIODE AKHIR</th>
-                                                <th>SELISIH</th>
-                                                <th>NOAKUN</th>
-                                                <th>NAMAAKUN</th>
-                                                <th>Nilai</th>
-                                                <th>NoAkunLengkap</th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         </tbody>
@@ -959,6 +652,32 @@
 
             const tableConfig = @json($config);
 
+            $('#table-pelunasanhutang').html(generateThead(tableConfig.pelunasanhutang));
+            $('#table-pelunasanhutangdetail').html(generateThead(tableConfig.pelunasanhutangd));
+            $('#table-pelunasanpiutang').html(generateThead(tableConfig.pelunasanpiutang));
+            $('#table-pelunasanpiutangdetail').html(generateThead(tableConfig.pelunasanpiutangd));
+            $('#table-bank').html(generateThead(tableConfig.bank));
+            $('#table-kas').html(generateThead(tableConfig.kas));
+            $('#table-jurnalmemo').html(generateThead(tableConfig.jurnalmemo));
+            $('#table-apcndn').html(generateThead(tableConfig.apcndn));
+            $('#table-arcndn').html(generateThead(tableConfig.arcndn));
+            $('#table-tagihanklaim').html(generateThead(tableConfig.tagihanklaim));
+            $('#table-pembayaranklaim').html(generateThead(tableConfig.pembayaranklaim));
+            $('#table-pembayaranpphklaim').html(generateThead(tableConfig.pembayaranpphklaim));
+            $('#table-saldoawalklaim').html(generateThead(tableConfig.saldoawalklaim));
+            $('#table-maph').html(generateThead(tableConfig.maph));
+            $('#table-mapd').html(generateThead(tableConfig.mapd));
+            $('#table-marh').html(generateThead(tableConfig.marh));
+            $('#table-mard').html(generateThead(tableConfig.mapd));
+            $('#table-mbelih').html(generateThead(tableConfig.mbelih));
+            $('#table-mbelid').html(generateThead(tableConfig.mbelid));
+            $('#table-penjualanh').html(generateThead(tableConfig.penjualanh));
+            $('#table-penjualand').html(generateThead(tableConfig.penjualand));
+            $('#table-koreksih').html(generateThead(tableConfig.koreksih));
+            $('#table-koreksid').html(generateThead(tableConfig.koreksid));
+            $('#table-mutasih').html(generateThead(tableConfig.mutasih));
+            $('#table-mutasid').html(generateThead(tableConfig.mutasid));
+
             tablePelunasanHutang = $('#table-pelunasanhutang').DataTable({
                 processing: true,
                 serverSide: true,
@@ -974,34 +693,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
-                    { data: 'NoBukti', name: 'NoBukti', className: 'column-md' },
-                    { data: 'NoBuktiRef', name: 'NoBuktiRef', className: 'column-md' },
-                    { data: 'NoBuktiFAS', name: 'NoBuktiFAS', className: 'column-md' },
-                    { data: 'PT', name: 'PT', className: 'column-sm' },
-                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
-                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
-                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
-                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
-                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
-                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
-                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
-                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
-                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
-                    { data: 'KodePemasok', name: 'KodePemasok', className: 'column-md' },
-                    { data: 'NamaPemasok', name: 'NamaPemasok', className: 'column-lg' },
-                    { data: 'NoFaktur', name: 'NoFaktur', className: 'column-md' },
-                    { data: 'TglFaktur', name: 'TglFaktur', className: 'column-md' },
-                    { data: 'NominalPelunasan', name: 'NominalPelunasan', className: 'column-md' },
-                    { data: 'Jenis', name: 'Jenis', className: 'column-sm' },
-                    { data: 'NoAkun', name: 'NoAkun', className: 'column-md' },
-                    { data: 'NamaAkun', name: 'NamaAkun', className: 'column-lg' },
-                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
-                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-lg' },
-                    { data: 'NoAkunLengkap', name: 'NoAkunLengkap', className: 'column-lg' },
-                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
-                ],
+                columns: tableConfig.pelunasanhutang.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1057,19 +749,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [{
-                        data: 'NoBukti',
-                        name: 'NoBukti'
-                    },
-                    {
-                        data: 'NoInvoice',
-                        name: 'NoInvoice'
-                    },
-                    {
-                        data: 'NominalPelunasan',
-                        name: 'NominalPelunasan'
-                    },
-                ],
+                columns: tableConfig.pelunasanhutangd.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1110,34 +790,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
-                    { data: 'NoBukti', name: 'NoBukti', className: 'column-lg' },
-                    { data: 'NoBuktiRef', name: 'NoBuktiRef', className: 'column-lg' },
-                    { data: 'NoBuktiFAS', name: 'NoBuktiFAS', className: 'column-lg' },
-                    { data: 'PT', name: 'PT', className: 'column-sm' },
-                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
-                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
-                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
-                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
-                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
-                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
-                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
-                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
-                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
-                    { data: 'KodeCustomer', name: 'KodeCustomer', className: 'column-lg' },
-                    { data: 'NamaCustomer', name: 'NamaCustomer', className: 'column-lg' },
-                    { data: 'NoFaktur', name: 'NoFaktur', className: 'column-md' },
-                    { data: 'TglFaktur', name: 'TglFaktur', className: 'column-md' },
-                    { data: 'NominalPelunasan', name: 'NominalPelunasan', className: 'column-md' },
-                    { data: 'Jenis', name: 'Jenis', className: 'column-sm' },
-                    { data: 'NoAkun', name: 'NoAkun', className: 'column-md' },
-                    { data: 'NamaAkun', name: 'NamaAkun', className: 'column-lg' },
-                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
-                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-lg' },
-                    { data: 'NoAkunLengkap', name: 'NoAkunLengkap', className: 'column-lg' },
-                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
-                ],
+                columns: tableConfig.pelunasanpiutang.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1177,19 +830,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [{
-                        data: 'NoBukti',
-                        name: 'NoBukti'
-                    },
-                    {
-                        data: 'NoInvoice',
-                        name: 'NoInvoice'
-                    },
-                    {
-                        data: 'NominalPelunasan',
-                        name: 'NominalPelunasan'
-                    },
-                ],
+                columns: tableConfig.pelunasanpiutangd.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1230,40 +871,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
-                    {
-                        data: 'NoBukti', name: 'NoBukti', className: 'column-md',
-                        render: function(data, type, row) {
-                            return data ? data.toString() : '';
-                        }
-                    },
-                    { data: 'NomorRecord', name: 'NomorRecord', className: 'column-md' },
-                    { data: 'NomorKitir', name: 'NomorKitir', className: 'column-md' },
-                    { data: 'PT', name: 'PT', className: 'column-sm' },
-                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
-                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
-                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
-                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
-                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
-                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
-                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
-                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
-                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
-                    { data: 'NomorRekening', name: 'NomorRekening', className: 'column-md' },
-                    { data: 'Kategori', name: 'Kategori', className: 'column-sm' },
-                    { data: 'NoAkunBank', name: 'NoAkunBank', className: 'column-md' },
-                    { data: 'NamaAkunBank', name: 'NamaAkunBank', className: 'column-md' },
-                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
-                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-sm' },
-                    { data: 'Jenis(Keluar/Masuk)', name: 'Jenis(Keluar/Masuk)', className: 'column-md' },
-                    { data: 'Keterangan', name: 'Keterangan', className: 'column-lg' },
-                    { data: 'Nilai', name: 'Nilai', className: 'column-md' },
-                    { data: 'Debet', name: 'Debet', className: 'column-sm' },
-                    { data: 'Kredit', name: 'Kredit', className: 'column-sm' },
-                    { data: 'NoAkunBankLengkap', name: 'NoAkunBankLengkap', className: 'column-lg' },
-                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
-                ],
+                columns: tableConfig.bank.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1319,39 +927,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
-                    {
-                        data: 'NoBukti', name: 'NoBukti', className: 'column-md',
-                        render: function(data, type, row) {
-                            return data ? data.toString() : '';
-                        }
-                    },
-                    { data: 'NoBuktiRef', name: 'NoBuktiRef', className: 'column-md' },
-                    { data: 'PT', name: 'PT', className: 'column-sm' },
-                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
-                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
-                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
-                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
-                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
-                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
-                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
-                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
-                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
-                    { data: 'NoRekeningBank', name: 'NoRekeningBank', className: 'column-md' },
-                    { data: 'Kategori', name: 'Kategori', className: 'column-sm' },
-                    { data: 'NoAkunBank', name: 'NoAkunBank', className: 'column-md' },
-                    { data: 'NamaAkunBank', name: 'NamaAkunBank', className: 'column-md' },
-                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
-                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-sm' },
-                    { data: 'Jenis(Keluar/Masuk)', name: 'Jenis(Keluar/Masuk)', className: 'column-md' },
-                    { data: 'Keterangan', name: 'Keterangan', className: 'column-lg' },
-                    { data: 'Nilai', name: 'Nilai', className: 'column-md' },
-                    { data: 'Debet', name: 'Debet', className: 'column-sm' },
-                    { data: 'Kredit', name: 'Kredit', className: 'column-sm' },
-                    { data: 'NoAkunBankLengkap', name: 'NoAkunBankLengkap', className: 'column-lg' },
-                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
-                ],
+                columns: tableConfig.kas.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1407,33 +983,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
-                    {
-                        data: 'NoBukti', name: 'NoBukti', className: 'column-md',
-                        render: function(data, type, row) {
-                            return data ? data.toString() : '';
-                        }
-                    },
-                    { data: 'NoRef', name: 'NoRef', className: 'column-md' },
-                    { data: 'PT', name: 'PT', className: 'column-sm' },
-                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
-                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
-                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
-                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
-                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
-                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
-                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
-                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
-                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
-                    { data: 'Kategori', name: 'Kategori', className: 'column-sm' },
-                    { data: 'NoAkun', name: 'NoAkun', className: 'column-md' },
-                    { data: 'NamaAkun', name: 'NamaAkun', className: 'column-md' },
-                    { data: 'Keterangan', name: 'Keterangan', className: 'column-lg' },
-                    { data: 'Debet', name: 'Debet', className: 'column-sm' },
-                    { data: 'Kredit', name: 'Kredit', className: 'column-sm' },
-                    { data: 'NoAkunLengkap', name: 'NoAkunLengkap', className: 'column-lg' },
-                ],
+                columns: tableConfig.jurnalmemo.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1489,34 +1039,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
-                    { data: 'NoBukti', name: 'NoBukti', className: 'column-lg' },
-                    { data: 'NoBuktiFAS', name: 'NoBuktiFAS', className: 'column-md' },
-                    { data: 'PT', name: 'PT', className: 'column-sm' },
-                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
-                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
-                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
-                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
-                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
-                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
-                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
-                    { data: 'KodeDivisi', name: 'KodeDivisi', className: 'column-sm' },
-                    { data: 'NamaDivisi', name: 'NamaDivisi', className: 'column-md' },
-                    { data: 'KodePemasok', name: 'KodePemasok', className: 'column-md' },
-                    { data: 'NamaPemasok', name: 'NamaPemasok', className: 'column-lg' },
-                    { data: 'NoFaktur', name: 'NoFaktur', className: 'column-md' },
-                    { data: 'TglFaktur', name: 'TglFaktur', className: 'column-md' },
-                    { data: 'Nilai', name: 'Nilai', className: 'column-md' },
-                    { data: 'Jenis', name: 'Jenis', className: 'column-sm' },
-                    { data: 'NoAkun', name: 'NoAkun', className: 'column-md' },
-                    { data: 'NamaAkun', name: 'NamaAkun', className: 'column-lg' },
-                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
-                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-lg' },
-                    { data: 'Jenis(Keluar/Masuk)', name: 'Jenis(Keluar/Masuk)', className: 'column-sm' },
-                    { data: 'NoAkunLengkap', name: 'NoAkunLengkap', className: 'column-lg' },
-                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
-                ],
+                columns: tableConfig.apcndn.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1572,32 +1095,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: 'Tgl', name: 'Tgl', className: 'column-md' },
-                    { data: 'NoBukti', name: 'NoBukti', className: 'column-lg' },
-                    { data: 'NoBuktiFAS', name: 'NoBuktiFAS', className: 'column-md' },
-                    { data: 'PT', name: 'PT', className: 'column-sm' },
-                    { data: 'NamaPT', name: 'NamaPT', className: 'column-lg' },
-                    { data: 'PRINCIPLE', name: 'PRINCIPLE', className: 'column-sm' },
-                    { data: 'NamaPrinciple', name: 'NamaPrinciple', className: 'column-lg' },
-                    { data: 'DEPO', name: 'DEPO', className: 'column-sm' },
-                    { data: 'NamaDepo', name: 'NamaDepo', className: 'column-lg' },
-                    { data: 'KodeArea', name: 'KodeArea', className: 'column-sm' },
-                    { data: 'NamaArea', name: 'NamaArea', className: 'column-md' },
-                    { data: 'KodeCustomer', name: 'KodeCustomer', className: 'column-md' },
-                    { data: 'NamaCustomer', name: 'NamaCustomer', className: 'column-lg' },
-                    { data: 'NoFaktur', name: 'NoFaktur', className: 'column-md' },
-                    { data: 'TglFaktur', name: 'TglFaktur', className: 'column-md' },
-                    { data: 'Nilai', name: 'Nilai', className: 'column-md' },
-                    { data: 'Jenis', name: 'Jenis', className: 'column-sm' },
-                    { data: 'NoAkun', name: 'NoAkun', className: 'column-md' },
-                    { data: 'NamaAkun', name: 'NamaAkun', className: 'column-lg' },
-                    { data: 'NoAkunLawan', name: 'NoAkunLawan', className: 'column-md' },
-                    { data: 'NamaAkunLawan', name: 'NamaAkunLawan', className: 'column-lg' },
-                    { data: 'Jenis(Keluar/Masuk)', name: 'Jenis(Keluar/Masuk)', className: 'column-sm' },
-                    { data: 'NoAkunLengkap', name: 'NoAkunLengkap', className: 'column-lg' },
-                    { data: 'NoAkunLawanLengkap', name: 'NoAkunLawanLengkap', className: 'column-lg' },
-                ],
+                columns: tableConfig.arcndn.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1653,37 +1151,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: "NOBUKTI", name: "NOBUKTI" },
-                    { data: "PRINCIPAL", name: "PRINCIPAL" },
-                    { data: "NAMA_PRINCIPAL", name: "NAMA_PRINCIPAL" },
-                    { data: "DEPO", name: "DEPO" },
-                    { data: "NAMA_DEPO", name: "NAMA_DEPO" },
-                    { data: "AREA", name: "AREA" },
-                    { data: "NAMA_AREA", name: "NAMA_AREA" },
-                    { data: "DIVISI", name: "DIVISI" },
-                    { data: "NAMA_DIVISI", name: "NAMA_DIVISI" },
-                    { data: "KATEGORI", name: "KATEGORI" },
-                    { data: "TYPE", name: "TYPE" },
-                    { data: "JENIS KLAIM", name: "JENIS KLAIM" },
-                    { data: "NAMA KLAIM", name: "NAMA KLAIM" },
-                    { data: "NO PROGRAM", name: "NO PROGRAM" },
-                    { data: "PERIODE MULAI", name: "PERIODE MULAI" },
-                    { data: "PERIODE AKHIR", name: "PERIODE AKHIR" },
-                    { data: "TGL PIUTANG KLAIM", name: "TGL PIUTANG KLAIM" },
-                    { data: "TGL KIRIM KLAIM", name: "TGL KIRIM KLAIM" },
-                    { data: "NO KWITANSI", name: "NO KWITANSI" },
-                    { data: "DPP", name: "DPP" },
-                    { data: "PPN", name: "PPN" },
-                    { data: "NILAI KLAIM", name: "NILAI KLAIM" },
-                    { data: "NO AKUN NILAI KLAIM", name: "NO AKUN NILAI KLAIM" },
-                    { data: "NO AKUN PPN KLAIM", name: "NO AKUN PPN KLAIM" },
-                    { data: "NO AKUN DPP", name: "NO AKUN DPP" },
-                    { data: "AkunNilaiKlaim", name: "AkunNilaiKlaim" },
-                    { data: "AkunPpnKlaim", name: "AkunPpnKlaim" },
-                    { data: "AkunDppKlaim", name: "AkunDppKlaim" },
-                    { data: "Nilai", name: "Nilai" },
-                ],
+                columns: tableConfig.tagihanklaim.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1739,40 +1207,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: "NOBUKTI", name: "NOBUKTI" },
-                    { data: "PRINCIPAL", name: "PRINCIPAL" },
-                    { data: "NAMA_PRINCIPAL", name: "NAMA_PRINCIPAL" },
-                    { data: "DEPO", name: "DEPO" },
-                    { data: "NAMA_DEPO", name: "NAMA_DEPO" },
-                    { data: "AREA", name: "AREA" },
-                    { data: "NAMA_AREA", name: "NAMA_AREA" },
-                    { data: "DIVISI", name: "DIVISI" },
-                    { data: "NAMA_DIVISI", name: "NAMA_DIVISI" },
-                    { data: "KATEGORI", name: "KATEGORI" },
-                    { data: "TYPE", name: "TYPE" },
-                    { data: "JENIS KLAIM", name: "JENIS KLAIM" },
-                    { data: "NAMA KLAIM", name: "NAMA KLAIM" },
-                    { data: "NO PROGRAM", name: "NO PROGRAM" },
-                    { data: "PERIODE MULAI", name: "PERIODE MULAI" },
-                    { data: "PERIODE AKHIR", name: "PERIODE AKHIR" },
-                    { data: "TGL KIRIM KLAIM", name: "TGL KIRIM KLAIM" },
-                    { data: "NO KWITANSI", name: "NO KWITANSI" },
-                    { data: "TGL BAYAR", name: "TGL BAYAR" },
-                    { data: "KET BAYAR", name: "KET BAYAR" },
-                    { data: "DPP", name: "DPP" },
-                    { data: "PPN", name: "PPN" },
-                    { data: "NILAI KLAIM", name: "NILAI KLAIM" },
-                    { data: "TOTAL BAYAR", name: "TOTAL BAYAR" },
-                    { data: "NoAkunBank", name: "NoAkunBank" },
-                    { data: "NamaAkunBank", name: "NamaAkunBank" },
-                    { data: "NoAkunLawan", name: "NoAkunLawan" },
-                    { data: "NamaAkunLawan", name: "NamaAkunLawan" },
-                    { data: "Jenis(Keluar/Masuk)", name: "Jenis(Keluar/Masuk)" },
-                    { data: "NoAkunBankLengkap", name: "NoAkunBankLengkap" },
-                    { data: "NoAkunLawanLengkap", name: "NoAkunLawanLengkap" },
-                    { data: "Nilai", name: "Nilai" },
-                ],
+                columns: tableConfig.pembayaranklaim.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1828,40 +1263,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: "NOBUKTI", name: "NOBUKTI" },
-                    { data: "PRINCIPAL", name: "PRINCIPAL" },
-                    { data: "NAMA_PRINCIPAL", name: "NAMA_PRINCIPAL" },
-                    { data: "DEPO", name: "DEPO" },
-                    { data: "NAMA_DEPO", name: "NAMA_DEPO" },
-                    { data: "AREA", name: "AREA" },
-                    { data: "NAMA_AREA", name: "NAMA_AREA" },
-                    { data: "DIVISI", name: "DIVISI" },
-                    { data: "NAMA_DIVISI", name: "NAMA_DIVISI" },
-                    { data: "KATEGORI", name: "KATEGORI" },
-                    { data: "TYPE", name: "TYPE" },
-                    { data: "JENIS KLAIM", name: "JENIS KLAIM" },
-                    { data: "NAMA KLAIM", name: "NAMA KLAIM" },
-                    { data: "NO PROGRAM", name: "NO PROGRAM" },
-                    { data: "PERIODE MULAI", name: "PERIODE MULAI" },
-                    { data: "PERIODE AKHIR", name: "PERIODE AKHIR" },
-                    { data: "TGL KIRIM KLAIM", name: "TGL KIRIM KLAIM" },
-                    { data: "NO KWITANSI", name: "NO KWITANSI" },
-                    { data: "TGL BAYAR", name: "TGL BAYAR" },
-                    { data: "KET BAYAR", name: "KET BAYAR" },
-                    { data: "DPP", name: "DPP" },
-                    { data: "PPN", name: "PPN" },
-                    { data: "NILAI KLAIM", name: "NILAI KLAIM" },
-                    { data: "PENERIMAAN PPH", name: "PENERIMAAN PPH" },
-                    { data: "NoAkunBank", name: "NoAkunBank" },
-                    { data: "NamaAkunBank", name: "NamaAkunBank" },
-                    { data: "NoAkunLawan", name: "NoAkunLawan" },
-                    { data: "NamaAkunLawan", name: "NamaAkunLawan" },
-                    { data: "Jenis(Keluar/Masuk)", name: "Jenis(Keluar/Masuk)" },
-                    { data: "NoAkunBankLengkap", name: "NoAkunBankLengkap" },
-                    { data: "NoAkunLawanLengkap", name: "NoAkunLawanLengkap" },
-                    { data: "Nilai", name: "Nilai" },
-                ],
+                columns: tableConfig.pembayaranpphklaim.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1917,28 +1319,7 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }
                 },
-                columns: [
-                    { data: "PRINCIPAL", name: "PRINCIPAL" },
-                    { data: "NAMA_PRINCIPAL", name: "NAMA_PRINCIPAL" },
-                    { data: "DEPO", name: "DEPO" },
-                    { data: "NAMA_DEPO", name: "NAMA_DEPO" },
-                    { data: "AREA", name: "AREA" },
-                    { data: "NAMA_AREA", name: "NAMA_AREA" },
-                    { data: "DIVISI", name: "DIVISI" },
-                    { data: "NAMA_DIVISI", name: "NAMA_DIVISI" },
-                    { data: "KATEGORI", name: "KATEGORI" },
-                    { data: "TYPE", name: "TYPE" },
-                    { data: "JENIS KLAIM", name: "JENIS KLAIM" },
-                    { data: "NAMA KLAIM", name: "NAMA KLAIM" },
-                    { data: "NO PROGRAM", name: "NO PROGRAM" },
-                    { data: "PERIODE MULAI", name: "PERIODE MULAI" },
-                    { data: "PERIODE AKHIR", name: "PERIODE AKHIR" },
-                    { data: "SELISIH", name: "SELISIH" },
-                    { data: "NOAKUN", name: "NOAKUN" },
-                    { data: "NAMAAKUN", name: "NAMAAKUN" },
-                    { data: "Nilai", name: "Nilai" },
-                    { data: "NoAkunLengkap", name: "NoAkunLengkap" },
-                ],
+                columns: tableConfig.saldoawalklaim.columns,
                 columnDefs: [
                     { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
                 ],
@@ -1978,29 +1359,6 @@
                     });
                 }
             });
-
-            // generate thead from tableConfig
-            function generateThead(tableConfig) {
-                var theadHtml = '<thead><tr>';
-                $.each(tableConfig.columns, function(index, column) {
-                    theadHtml += '<th>' + column.name + '</th>';
-                });
-                theadHtml += '</tr></thead>';
-                return theadHtml;
-            }
-
-            $('#table-maph').html(generateThead(tableConfig.maph));
-            $('#table-mapd').html(generateThead(tableConfig.mapd));
-            $('#table-marh').html(generateThead(tableConfig.marh));
-            $('#table-mard').html(generateThead(tableConfig.mapd));
-            $('#table-mbelih').html(generateThead(tableConfig.mbelih));
-            $('#table-mbelid').html(generateThead(tableConfig.mbelid));
-            $('#table-penjualanh').html(generateThead(tableConfig.penjualanh));
-            $('#table-penjualand').html(generateThead(tableConfig.penjualand));
-            $('#table-koreksih').html(generateThead(tableConfig.koreksih));
-            $('#table-koreksid').html(generateThead(tableConfig.koreksid));
-            $('#table-mutasih').html(generateThead(tableConfig.mutasih));
-            $('#table-mutasid').html(generateThead(tableConfig.mutasid));
 
             tableMApH = $('#table-maph').DataTable({
                 processing: tableConfig.maph.processing,
@@ -2673,6 +2031,16 @@
                     });
                 }
             });
+
+            // generate thead from tableConfig
+            function generateThead(tableConfig) {
+                var theadHtml = '<thead><tr>';
+                $.each(tableConfig.columns, function(index, column) {
+                    theadHtml += '<th>' + column.name + '</th>';
+                });
+                theadHtml += '</tr></thead>';
+                return theadHtml;
+            }
 
             function activateTab(tabId) {
                 var tabEl = document.querySelector(tabId);
