@@ -147,6 +147,14 @@
                             <option value="pembayaranklaim">Pembayaran Klaim</option>
                             <option value="pembayaranpphklaim">Pembayaran PPH Klaim</option>
                             <option value="saldoawalklaim">Saldo Awal Klaim</option>
+                            <option value="maph">MAp Header</option>
+                            <option value="mapd">MAp Detail</option>
+                            <option value="marh">MAr Header</option>
+                            <option value="mard">MAr Detail</option>
+                            <option value="mbelih">MBeli Header</option>
+                            <option value="mbelid">MBeli Detail</option>
+                            <option value="penjualanh">Penjualan Header</option>
+                            <option value="penjualand">Penjualan Detail</option>
                         </select>
                         <button id="btn-download" class="btn btn-outline-success"><i
                                 class="fas fa-download"></i> Download</button>
@@ -223,6 +231,46 @@
                                 <a class="nav-link" id="tab-12" data-bs-toggle="tab"
                                     href="#tabpanel-saldoawalklaim" role="tab"
                                     aria-controls="tabpanel-saldoawalklaim" aria-selected="false">Saldo Awal Klaim</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-13" data-bs-toggle="tab"
+                                    href="#tabpanel-maph" role="tab"
+                                    aria-controls="tabpanel-maph" aria-selected="false">MAp Header</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-14" data-bs-toggle="tab"
+                                    href="#tabpanel-mapd" role="tab"
+                                    aria-controls="tabpanel-mapd" aria-selected="false">MAp Detail</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-15" data-bs-toggle="tab"
+                                    href="#tabpanel-marh" role="tab"
+                                    aria-controls="tabpanel-marh" aria-selected="false">MAr Header</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-16" data-bs-toggle="tab"
+                                    href="#tabpanel-mard" role="tab"
+                                    aria-controls="tabpanel-mard" aria-selected="false">MAr Detail</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-17" data-bs-toggle="tab"
+                                    href="#tabpanel-mbelih" role="tab"
+                                    aria-controls="tabpanel-mbelih" aria-selected="false">Mbeli Header</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-18" data-bs-toggle="tab"
+                                    href="#tabpanel-mbelid" role="tab"
+                                    aria-controls="tabpanel-mbelid" aria-selected="false">Mbeli Detail</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-19" data-bs-toggle="tab"
+                                    href="#tabpanel-penjualanh" role="tab"
+                                    aria-controls="tabpanel-penjualanh" aria-selected="false">Penjualan Header</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-20" data-bs-toggle="tab"
+                                    href="#tabpanel-penjualand" role="tab"
+                                    aria-controls="tabpanel-penjualand" aria-selected="false">Penjualan Detail</a>
                             </li>
                         </ul>
                         <div class="tab-content pt-5" id="tab-content">
@@ -702,6 +750,102 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="tab-pane" id="tabpanel-maph" role="tabpanel"
+                                aria-labelledby="tabpanel-maph">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-maph">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-mapd" role="tabpanel"
+                                aria-labelledby="tabpanel-mapd">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-mapd">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-marh" role="tabpanel"
+                                aria-labelledby="tabpanel-marh">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-marh">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-mard" role="tabpanel"
+                                aria-labelledby="tabpanel-mard">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-mard">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-mbelih" role="tabpanel"
+                                aria-labelledby="tabpanel-mbelih">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-mbelih">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-mbelid" role="tabpanel"
+                                aria-labelledby="tabpanel-mbelid">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-mbelid">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-penjualanh" role="tabpanel"
+                                aria-labelledby="tabpanel-penjualanh">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-penjualanh">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-penjualand" role="tabpanel"
+                                aria-labelledby="tabpanel-penjualand">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-penjualand">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -738,7 +882,10 @@
             var tablePelunasanHutang, tablePelunasanHutangDetail, tablePelunasanPiutang,
             tablePelunasanPiutangDetail, tableBank, tableKas, tableJurnalMemo,
             tableApCnDn, tableArCnDn, tableTagihanKlaim, tablePembayaranKlaim, tablePembayaranPphKlaim,
-            tableSaldoAwalKlaim;
+            tableSaldoAwalKlaim, tableMApH, tableMApD, tableMArH, tableMArD, tableMbeliH, tableMbeliD,
+            tablePenjualanH, tablePenjualanD;
+
+            const tableConfig = @json($config);
 
             tablePelunasanHutang = $('#table-pelunasanhutang').DataTable({
                 processing: true,
@@ -1760,6 +1907,472 @@
                 }
             });
 
+            // generate thead from tableConfig
+            function generateThead(tableConfig) {
+                var theadHtml = '<thead><tr>';
+                $.each(tableConfig.columns, function(index, column) {
+                    theadHtml += '<th>' + column.name + '</th>';
+                });
+                theadHtml += '</tr></thead>';
+                return theadHtml;
+            }
+
+            $('#table-maph').html(generateThead(tableConfig.maph));
+            tableMApH = $('#table-maph').DataTable({
+                processing: tableConfig.maph.processing,
+                serverSide: tableConfig.maph.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'maph';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.maph.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.maph.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableMApH.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            $('#table-mapd').html(generateThead(tableConfig.mapd));
+            tableMApD = $('#table-mapd').DataTable({
+                processing: tableConfig.mapd.processing,
+                serverSide: tableConfig.mapd.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'mapd';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.mapd.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.mapd.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableMApD.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            $('#table-marh').html(generateThead(tableConfig.marh));
+            tableMApH = $('#table-marh').DataTable({
+                processing: tableConfig.marh.processing,
+                serverSide: tableConfig.marh.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'marh';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.marh.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.marh.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableMArH.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            $('#table-mard').html(generateThead(tableConfig.mapd));
+            tableMApD = $('#table-mard').DataTable({
+                processing: tableConfig.mard.processing,
+                serverSide: tableConfig.mard.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'mard';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.mard.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.mard.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableMArD.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            $('#table-mbelih').html(generateThead(tableConfig.mbelih));
+            tableMbeliH = $('#table-mbelih').DataTable({
+                processing: tableConfig.mbelih.processing,
+                serverSide: tableConfig.mbelih.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'mbelih';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.mbelih.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.mbelih.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableMbeliH.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            $('#table-mbelid').html(generateThead(tableConfig.mbelid));
+            tableMbeliD = $('#table-mbelid').DataTable({
+                processing: tableConfig.mbelid.processing,
+                serverSide: tableConfig.mbelid.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'mbelid';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.mbelid.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.mbelid.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableMbeliD.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            $('#table-penjualanh').html(generateThead(tableConfig.penjualanh));
+            tablePenjualanH = $('#table-penjualanh').DataTable({
+                processing: tableConfig.penjualanh.processing,
+                serverSide: tableConfig.penjualanh.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'penjualanh';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.penjualanh.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.penjualanh.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tablePenjualanH.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            $('#table-penjualand').html(generateThead(tableConfig.penjualand));
+            tablePenjualanD = $('#table-penjualand').DataTable({
+                processing: tableConfig.penjualand.processing,
+                serverSide: tableConfig.penjualand.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'penjualand';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.penjualand.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.penjualand.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tablePenjualanD.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
             function activateTab(tabId) {
                 var tabEl = document.querySelector(tabId);
                 var tab = new bootstrap.Tab(tabEl);
@@ -1806,6 +2419,14 @@
                     tablePembayaranKlaim.ajax.reload(checkAllTablesLoaded, false);
                     tablePembayaranPphKlaim.ajax.reload(checkAllTablesLoaded, false);
                     tableSaldoAwalKlaim.ajax.reload(checkAllTablesLoaded, false);
+                    tableMApH.ajax.reload(checkAllTablesLoaded, false);
+                    tableMApD.ajax.reload(checkAllTablesLoaded, false);
+                    tableMArH.ajax.reload(checkAllTablesLoaded, false);
+                    tableMApD.ajax.reload(checkAllTablesLoaded, false);
+                    tableMbeliH.ajax.reload(checkAllTablesLoaded, false);
+                    tableMbeliD.ajax.reload(checkAllTablesLoaded, false);
+                    tablePenjualanH.ajax.reload(checkAllTablesLoaded, false);
+                    tablePenjualanD.ajax.reload(checkAllTablesLoaded, false);
                 } else if (filterTarget === 'pelunasanhutang') {
                     activateTab('#tab-0');
                     tablePelunasanHutang.ajax.reload(function() {
@@ -1895,6 +2516,62 @@
                     tableSaldoAwalKlaim.ajax.reload(function() {
                         showSuccessToast(
                             'Data Saldo Awal Klaim berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'maph') {
+                    activateTab('#tab-13');
+                    tableMApH.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data MAp Header berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'mapd') {
+                    activateTab('#tab-14');
+                    tableMApD.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data MAp Detail berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'marh') {
+                    activateTab('#tab-15');
+                    tableMArH.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data MAr Header berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'mard') {
+                    activateTab('#tab-16');
+                    tableMArD.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data MAr Detail berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'mbelih') {
+                    activateTab('#tab-17');
+                    tableMbeliH.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Mbeli Header berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'mbelid') {
+                    activateTab('#tab-18');
+                    tableMbeliD.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Mbeli Detail berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'penjualanh') {
+                    activateTab('#tab-19');
+                    tablePenjualanH.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Penjualan Header berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'penjualand') {
+                    activateTab('#tab-20');
+                    tablePenjualanD.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Penjualan Detail berhasil difilter berdasarkan periode: ' +
                             selectedPeriode);
                     }, false);
                 }
