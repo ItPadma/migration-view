@@ -155,6 +155,10 @@
                             <option value="mbelid">MBeli Detail</option>
                             <option value="penjualanh">Penjualan Header</option>
                             <option value="penjualand">Penjualan Detail</option>
+                            <option value="koreksih">Koreksi Header</option>
+                            <option value="koreksid">Koreksi Detail</option>
+                            <option value="mutasih">Mutasi Header</option>
+                            <option value="mutasid">Mutasi Detail</option>
                         </select>
                         <button id="btn-download" class="btn btn-outline-success"><i
                                 class="fas fa-download"></i> Download</button>
@@ -271,6 +275,26 @@
                                 <a class="nav-link" id="tab-20" data-bs-toggle="tab"
                                     href="#tabpanel-penjualand" role="tab"
                                     aria-controls="tabpanel-penjualand" aria-selected="false">Penjualan Detail</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-21" data-bs-toggle="tab"
+                                    href="#tabpanel-koreksih" role="tab"
+                                    aria-controls="tabpanel-koreksih" aria-selected="false">Koreksi Header</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-22" data-bs-toggle="tab"
+                                    href="#tabpanel-koreksid" role="tab"
+                                    aria-controls="tabpanel-koreksid" aria-selected="false">Koreksi Detail</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-23" data-bs-toggle="tab"
+                                    href="#tabpanel-mutasih" role="tab"
+                                    aria-controls="tabpanel-mutasih" aria-selected="false">Mutasi Header</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-24" data-bs-toggle="tab"
+                                    href="#tabpanel-mutasid" role="tab"
+                                    aria-controls="tabpanel-mutasid" aria-selected="false">Mutasi Detail</a>
                             </li>
                         </ul>
                         <div class="tab-content pt-5" id="tab-content">
@@ -846,6 +870,54 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="tab-pane" id="tabpanel-koreksih" role="tabpanel"
+                                aria-labelledby="tabpanel-koreksih">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-koreksih">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-koreksid" role="tabpanel"
+                                aria-labelledby="tabpanel-koreksid">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-koreksid">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-mutasih" role="tabpanel"
+                                aria-labelledby="tabpanel-mutasih">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-mutasih">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-mutasid" role="tabpanel"
+                                aria-labelledby="tabpanel-mutasid">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-mutasid">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -883,7 +955,7 @@
             tablePelunasanPiutangDetail, tableBank, tableKas, tableJurnalMemo,
             tableApCnDn, tableArCnDn, tableTagihanKlaim, tablePembayaranKlaim, tablePembayaranPphKlaim,
             tableSaldoAwalKlaim, tableMApH, tableMApD, tableMArH, tableMArD, tableMbeliH, tableMbeliD,
-            tablePenjualanH, tablePenjualanD;
+            tablePenjualanH, tablePenjualanD, tableKoreksiH, tableKoreksiD, tableMutasiH, tableMutasiD;
 
             const tableConfig = @json($config);
 
@@ -1925,6 +1997,10 @@
             $('#table-mbelid').html(generateThead(tableConfig.mbelid));
             $('#table-penjualanh').html(generateThead(tableConfig.penjualanh));
             $('#table-penjualand').html(generateThead(tableConfig.penjualand));
+            $('#table-koreksih').html(generateThead(tableConfig.koreksih));
+            $('#table-koreksid').html(generateThead(tableConfig.koreksid));
+            $('#table-mutasih').html(generateThead(tableConfig.mutasih));
+            $('#table-mutasid').html(generateThead(tableConfig.mutasid));
 
             tableMApH = $('#table-maph').DataTable({
                 processing: tableConfig.maph.processing,
@@ -2374,6 +2450,230 @@
                 }
             });
 
+            tableKoreksiH = $('#table-koreksih').DataTable({
+                processing: tableConfig.koreksih.processing,
+                serverSide: tableConfig.koreksih.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'koreksih';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.koreksih.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.koreksih.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableKoreksiH.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tableKoreksiD = $('#table-koreksid').DataTable({
+                processing: tableConfig.koreksid.processing,
+                serverSide: tableConfig.koreksid.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'koreksid';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.koreksid.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.koreksid.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableKoreksiD.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tableMutasiH = $('#table-mutasih').DataTable({
+                processing: tableConfig.mutasih.processing,
+                serverSide: tableConfig.mutasih.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'mutasih';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.mutasih.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.mutasih.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableMutasiH.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tableMutasiD = $('#table-mutasid').DataTable({
+                processing: tableConfig.mutasid.processing,
+                serverSide: tableConfig.mutasid.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'mutasid';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.mutasid.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.mutasid.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableMutasiD.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
             function activateTab(tabId) {
                 var tabEl = document.querySelector(tabId);
                 var tab = new bootstrap.Tab(tabEl);
@@ -2439,6 +2739,10 @@
                             tableMbeliD.ajax.reload(checkAllTablesLoaded, false);
                             tablePenjualanH.ajax.reload(checkAllTablesLoaded, false);
                             tablePenjualanD.ajax.reload(checkAllTablesLoaded, false);
+                            tableKoreksiH.ajax.reload(checkAllTablesLoaded, false);
+                            tableKoreksiD.ajax.reload(checkAllTablesLoaded, false);
+                            tableMutasiH.ajax.reload(checkAllTablesLoaded, false);
+                            tableMutasiD.ajax.reload(checkAllTablesLoaded, false);
                         } else {
                             $(this).prop('disabled', false);
                             return;
@@ -2589,6 +2893,34 @@
                     tablePenjualanD.ajax.reload(function() {
                         showSuccessToast(
                             'Data Penjualan Detail berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'koreksih') {
+                    activateTab('#tab-21');
+                    tableKoreksiH.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Koreksi Header berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'koreksid') {
+                    activateTab('#tab-22');
+                    tableKoreksiD.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Koreksi Detail berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'mutasih') {
+                    activateTab('#tab-23');
+                    tableMutasiH.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Mutasi Header berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'mutasid') {
+                    activateTab('#tab-24');
+                    tableMutasiD.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Mutasi Detail berhasil difilter berdasarkan periode: ' +
                             selectedPeriode);
                     }, false);
                 }

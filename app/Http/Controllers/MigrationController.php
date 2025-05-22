@@ -7,11 +7,15 @@ use App\Exports\ArCnDnExport;
 use App\Exports\BankExport;
 use App\Exports\JurnalMemoExport;
 use App\Exports\KasExport;
+use App\Exports\KoreksiDExport;
+use App\Exports\KoreksiHExport;
 use App\Exports\MApDExport;
 use App\Exports\MApHExport;
 use App\Exports\MArDExport;
 use App\Exports\MArHExport;
 use App\Exports\MbeliDExport;
+use App\Exports\MutasiDExport;
+use App\Exports\MutasiHExport;
 use App\Exports\PelunasanHutangDExport;
 use App\Exports\PelunasanHutangExport;
 use App\Exports\PelunasanPiutangDExport;
@@ -31,12 +35,16 @@ use App\Models\ExpensePelunasanHutang;
 use App\Models\ExpensePelunasanHutangD;
 use App\Models\ExpensePelunasanPiutang;
 use App\Models\ExpensePelunasanPiutangD;
+use App\Models\KoreksiD;
+use App\Models\KoreksiH;
 use App\Models\MApD;
 use App\Models\MApH;
 use App\Models\MArD;
 use App\Models\MArH;
 use App\Models\MbeliD;
 use App\Models\MbeliH;
+use App\Models\MutasiD;
+use App\Models\MutasiH;
 use App\Models\PembayaranKlaim;
 use App\Models\PembayaranPphKlaim;
 use App\Models\PenjualanD;
@@ -59,6 +67,10 @@ class MigrationController extends Controller
         $column_mbelid = DB::connection('sqlsrv_252')->select($this->tableDefQuery('MbeliD'));
         $column_penjualanh = DB::connection('sqlsrv_252')->select($this->tableDefQuery('temp_penjualan_h'));
         $column_penjualand = DB::connection('sqlsrv_252')->select($this->tableDefQuery('temp_penjualan_d'));
+        $column_koreksih = DB::connection('sqlsrv_252')->select($this->tableDefQuery('TempKoreksiH'));
+        $column_koreksid = DB::connection('sqlsrv_252')->select($this->tableDefQuery('TempKoreksiD'));
+        $column_mutasih = DB::connection('sqlsrv_252')->select($this->tableDefQuery('TempMutasiH'));
+        $column_mutasid = DB::connection('sqlsrv_252')->select($this->tableDefQuery('TempMutasiD'));
 
         $config = [
             'maph' => [
@@ -105,6 +117,30 @@ class MigrationController extends Controller
             ],
             'penjualand' => [
                 'columns' => $column_penjualand,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'koreksih' => [
+                'columns' => $column_koreksih,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'koreksid' => [
+                'columns' => $column_koreksid,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'mutasih' => [
+                'columns' => $column_mutasih,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'mutasid' => [
+                'columns' => $column_mutasid,
                 'pageLength' => 25,
                 'processing' => true,
                 'serverSide' => true,
@@ -196,6 +232,16 @@ class MigrationController extends Controller
                     ->whereBetween('TglDO', [$startDate, $endDate]);
             } elseif ($tipe == 'penjualand') {
                 $query = PenjualanD::query();
+            } elseif ($tipe == 'koreksih') {
+                $query = KoreksiH::query()
+                    ->whereBetween('Tgl', [$startDate, $endDate]);
+            } elseif ($tipe == 'koreksid') {
+                $query = KoreksiD::query();
+            } elseif ($tipe == 'mutasih') {
+                $query = MutasiH::query()
+                    ->whereBetween('Tgl', [$startDate, $endDate]);
+            } elseif ($tipe == 'mutasid') {
+                $query = MutasiD::query();
             } else {
                 return response()->json([
                     'draw' => intval($request->input('draw', 1)),
@@ -338,6 +384,42 @@ class MigrationController extends Controller
                             ->orWhere('TipeOrder', 'like', "%{$searchValue}%");
                     });
                 }
+                if ($tipe == 'koreksih') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('KodeTransaksi', 'like', "%{$searchValue}%")
+                            ->orWhere('PT', 'like', "%{$searchValue}%")
+                            ->orWhere('NamaPT', 'like', "%{$searchValue}%")
+                            ->orWhere('PRINCIPLE', 'like', "%{$searchValue}%")
+                            ->orWhere('NamaPrinciple', 'like', "%{$searchValue}%")
+                            ->orWhere('DEPO', 'like', "%{$searchValue}%")
+                            ->orWhere('NamaDepo', 'like', "%{$searchValue}%")
+                            ->orWhere('Area', 'like', "%{$searchValue}%")
+                            ->orWhere('NamaArea', 'like', "%{$searchValue}%")
+                            ->orWhere('Gudang', 'like', "%{$searchValue}%")
+                            ->orWhere('Keterangan', 'like', "%{$searchValue}%")
+                            ->orWhere('Tipe', 'like', "%{$searchValue}%");
+                    });
+                }
+                if ($tipe == 'mutasih') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('KodeTransaksi', 'like', "%{$searchValue}%")
+                            ->orWhere('PT', 'like', "%{$searchValue}%")
+                            ->orWhere('NamaPT', 'like', "%{$searchValue}%")
+                            ->orWhere('PRINCIPLE', 'like', "%{$searchValue}%")
+                            ->orWhere('NamaPrinciple', 'like', "%{$searchValue}%")
+                            ->orWhere('DepoAsal', 'like', "%{$searchValue}%")
+                            ->orWhere('NamaDepoAsal', 'like', "%{$searchValue}%")
+                            ->orWhere('Keterangan', 'like', "%{$searchValue}%")
+                            ->orWhere('Tipe', 'like', "%{$searchValue}%");
+                    });
+                }
+                if ($tipe == 'koreksid' || $tipe == 'mutasid') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('KodeTransaksi', 'like', "%{$searchValue}%")
+                            ->orWhere('KodeBarang', 'like', "%{$searchValue}%")
+                            ->orWhere('Tipe', 'like', "%{$searchValue}%");
+                    });
+                }
             }
 
             // Column specific filters
@@ -433,6 +515,14 @@ class MigrationController extends Controller
                 return Excel::download(new PenjualanHExport($startDate, $endDate), "temp_penjualan_h_{$startDate}_{$endDate}.xlsx");
             } elseif ($tipe == 'penjualand') {
                 return Excel::download(new PenjualanDExport($startDate, $endDate), "temp_penjualan_d_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'koreksih') {
+                return Excel::download(new KoreksiHExport($startDate, $endDate), "TempKoreksiH_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'koreksid') {
+                return Excel::download(new KoreksiDExport($startDate, $endDate), "TempKoreksiD_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'mutasih') {
+                return Excel::download(new MutasiHExport($startDate, $endDate), "TempMutasiH_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'mutasid') {
+                return Excel::download(new MutasiDExport($startDate, $endDate), "TempMutasiD_{$startDate}_{$endDate}.xlsx");
             }
         } catch (\Throwable $th) {
             return response()->json([
