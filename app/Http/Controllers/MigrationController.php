@@ -25,6 +25,8 @@ use App\Exports\PembayaranPphKlaimExport;
 use App\Exports\PenjualanDExport;
 use App\Exports\PenjualanHExport;
 use App\Exports\SaldoAwalKlaimExport;
+use App\Exports\SaldoHutangExport;
+use App\Exports\SaldoPiutangExport;
 use App\Exports\TagihanKlaimExport;
 use App\Models\ExpenseApCnDn;
 use App\Models\ExpenseArCnDn;
@@ -50,6 +52,8 @@ use App\Models\PembayaranPphKlaim;
 use App\Models\PenjualanD;
 use App\Models\PenjualanH;
 use App\Models\SaldoAwalKlaim;
+use App\Models\SaldoHutang;
+use App\Models\SaldoPiutang;
 use App\Models\TagihanKlaim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -84,6 +88,8 @@ class MigrationController extends Controller
         $column_koreksid = DB::connection('sqlsrv_252')->select($this->tableDefQuery('TempKoreksiD'));
         $column_mutasih = DB::connection('sqlsrv_252')->select($this->tableDefQuery('TempMutasiH'));
         $column_mutasid = DB::connection('sqlsrv_252')->select($this->tableDefQuery('TempMutasiD'));
+        $column_saldohutang = DB::connection('sqlsrv_252')->select($this->tableDefQuery('SaldoHutang'));
+        $column_saldopiutang = DB::connection('sqlsrv_252')->select($this->tableDefQuery('SaldoPiutang'));
 
         $config = [
             'pelunasanhutang' => [
@@ -235,7 +241,19 @@ class MigrationController extends Controller
                 'pageLength' => 25,
                 'processing' => true,
                 'serverSide' => true,
-            ]
+            ],
+            'saldohutang' => [
+                'columns' => $column_saldohutang,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
+            'saldopiutang' => [
+                'columns' => $column_saldopiutang,
+                'pageLength' => 25,
+                'processing' => true,
+                'serverSide' => true,
+            ],
         ];
 
         return view('index', compact('config'));
@@ -333,6 +351,10 @@ class MigrationController extends Controller
                     ->whereBetween('Tgl', [$startDate, $endDate]);
             } elseif ($tipe == 'mutasid') {
                 $query = MutasiD::query();
+            } elseif ($tipe == 'saldohutang') {
+                $query = SaldoHutang::query();
+            } elseif ($tipe == 'saldopiutang') {
+                $query = SaldoPiutang::query();
             } else {
                 return response()->json([
                     'draw' => intval($request->input('draw', 1)),
@@ -511,6 +533,33 @@ class MigrationController extends Controller
                             ->orWhere('Tipe', 'like', "%{$searchValue}%");
                     });
                 }
+                if ($tipe == 'saldohutang') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('SupplierId', 'like', "%{$searchValue}%")
+                            ->orWhere('Supplier', 'like', "%{$searchValue}%")
+                            ->orWhere('PT', 'like', "%{$searchValue}%")
+                            ->orWhere('PRINCIPLE', 'like', "%{$searchValue}%")
+                            ->orWhere('DEPO', 'like', "%{$searchValue}%")
+                            ->orWhere('NoPOReceipt', 'like', "%{$searchValue}%")
+                            ->orWhere('NoPO', 'like', "%{$searchValue}%")
+                            ->orWhere('NoInv', 'like', "%{$searchValue}%")
+                            ->orWhere('FakturPajakId', 'like', "%{$searchValue}%");
+                    });
+                }
+                if ($tipe == 'saldopiutang') {
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('CustId', 'like', "%{$searchValue}%")
+                            ->orWhere('Customer', 'like', "%{$searchValue}%")
+                            ->orWhere('CategoryName4', 'like', "%{$searchValue}%")
+                            ->orWhere('PT', 'like', "%{$searchValue}%")
+                            ->orWhere('PRINCIPLE', 'like', "%{$searchValue}%")
+                            ->orWhere('DEPO', 'like', "%{$searchValue}%")
+                            ->orWhere('AREA', 'like', "%{$searchValue}%")
+                            ->orWhere('InvNo', 'like', "%{$searchValue}%")
+                            ->orWhere('InvDate', 'like', "%{$searchValue}%")
+                            ->orWhere('SalesName', 'like', "%{$searchValue}%");
+                    });
+                }
             }
 
             // Column specific filters
@@ -614,6 +663,10 @@ class MigrationController extends Controller
                 return Excel::download(new MutasiHExport($startDate, $endDate), "TempMutasiH_{$startDate}_{$endDate}.xlsx");
             } elseif ($tipe == 'mutasid') {
                 return Excel::download(new MutasiDExport($startDate, $endDate), "TempMutasiD_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'saldohutang') {
+                return Excel::download(new SaldoHutangExport($startDate, $endDate), "SaldoHutang_{$startDate}_{$endDate}.xlsx");
+            } elseif ($tipe == 'saldopiutang') {
+                return Excel::download(new SaldoPiutangExport($startDate, $endDate), "SaldoPiutang_{$startDate}_{$endDate}.xlsx");
             }
         } catch (\Throwable $th) {
             return response()->json([

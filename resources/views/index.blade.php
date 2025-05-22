@@ -159,6 +159,8 @@
                             <option value="koreksid">Koreksi Detail</option>
                             <option value="mutasih">Mutasi Header</option>
                             <option value="mutasid">Mutasi Detail</option>
+                            <option value="saldohutang">Saldo Hutang</option>
+                            <option value="saldopiutang">Saldo Piutang</option>
                         </select>
                         <button id="btn-download" class="btn btn-outline-success"><i
                                 class="fas fa-download"></i> Download</button>
@@ -295,6 +297,16 @@
                                 <a class="nav-link" id="tab-24" data-bs-toggle="tab"
                                     href="#tabpanel-mutasid" role="tab"
                                     aria-controls="tabpanel-mutasid" aria-selected="false">Mutasi Detail</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-25" data-bs-toggle="tab"
+                                    href="#tabpanel-saldohutang" role="tab"
+                                    aria-controls="tabpanel-saldohutang" aria-selected="false">Saldo Hutang</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="tab-26" data-bs-toggle="tab"
+                                    href="#tabpanel-saldopiutang" role="tab"
+                                    aria-controls="tabpanel-saldopiutang" aria-selected="false">Saldo Piutang</a>
                             </li>
                         </ul>
                         <div class="tab-content pt-5" id="tab-content">
@@ -611,6 +623,30 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="tab-pane" id="tabpanel-saldohutang" role="tabpanel"
+                                aria-labelledby="tabpanel-saldohutang">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-saldohutang">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabpanel-saldopiutang" role="tabpanel"
+                                aria-labelledby="tabpanel-saldopiutang">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="table-saldopiutang">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -648,7 +684,8 @@
             tablePelunasanPiutangDetail, tableBank, tableKas, tableJurnalMemo,
             tableApCnDn, tableArCnDn, tableTagihanKlaim, tablePembayaranKlaim, tablePembayaranPphKlaim,
             tableSaldoAwalKlaim, tableMApH, tableMApD, tableMArH, tableMArD, tableMbeliH, tableMbeliD,
-            tablePenjualanH, tablePenjualanD, tableKoreksiH, tableKoreksiD, tableMutasiH, tableMutasiD;
+            tablePenjualanH, tablePenjualanD, tableKoreksiH, tableKoreksiD, tableMutasiH, tableMutasiD,
+            tableSaldoHutang, tableSaldoPiutang;
 
             const tableConfig = @json($config);
 
@@ -677,6 +714,8 @@
             $('#table-koreksid').html(generateThead(tableConfig.koreksid));
             $('#table-mutasih').html(generateThead(tableConfig.mutasih));
             $('#table-mutasid').html(generateThead(tableConfig.mutasid));
+            $('#table-saldohutang').html(generateThead(tableConfig.saldohutang));
+            $('#table-saldopiutang').html(generateThead(tableConfig.saldopiutang));
 
             tablePelunasanHutang = $('#table-pelunasanhutang').DataTable({
                 processing: true,
@@ -2032,6 +2071,118 @@
                 }
             });
 
+            tableSaldoHutang = $('#table-saldohutang').DataTable({
+                processing: tableConfig.saldohutang.processing,
+                serverSide: tableConfig.saldohutang.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'saldohutang';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.saldohutang.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.saldohutang.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableSaldoHutang.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
+            tableSaldoPiutang = $('#table-saldopiutang').DataTable({
+                processing: tableConfig.saldopiutang.processing,
+                serverSide: tableConfig.saldopiutang.serverSide,
+                ajax: {
+                    url: "{{ route('migration.getdata') }}",
+                    type: "GET",
+                    data: function(d) {
+                        d.periode = $('#filter_periode').val();
+                        d.tipe = 'saldopiutang';
+                        return d;
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                },
+                columns: tableConfig.saldopiutang.columns,
+                columnDefs: [
+                    { targets: '_all', className: 'dt-head-nowrap dt-body-nowrap' }
+                ],
+                pageLength: tableConfig.saldopiutang.pageLength,
+                language: {
+                    "emptyTable": "Tidak ada data yang tersedia",
+                    "zeroRecords": "Tidak ada data yang ditemukan",
+                    "infoEmpty": "",
+                    "infoFiltered": "",
+                    "processing": '<div class="dt-processing-container"><div class="dt-processing-spinner"></div><div class="dt-processing-text">Sedang memproses...</div></div>'
+                },
+                initComplete: function() {
+                    this.api().columns.adjust().draw();
+                    // Tambahkan event listener untuk window resize
+                    $(window).on('resize', function() {
+                        tableSaldoPiutang.columns.adjust();
+                    });
+                },
+                preDrawCallback: function() {
+                    // Tambahkan overlay sebelum tabel di-render
+                    $('.dataTables_scrollHead table.dataTable thead tr:nth-child(2)').hide();
+                    if (!$('.dt-processing-overlay').length) {
+                        $('body').append(
+                            '<div class="dt-processing-overlay" style="display:none;"></div>');
+                    }
+                },
+                drawCallback: function() {
+                    // Hapus overlay setelah tabel selesai di-render
+                    $('.dt-processing-overlay').remove();
+
+                    this.api().columns.adjust();
+                    // Tambahkan tooltip untuk sel yang terpotong
+                    $('table.dataTable tbody td').each(function() {
+                        if(this.offsetWidth < this.scrollWidth) {
+                            $(this).attr('title', $(this).text());
+                        }
+                    });
+                }
+            });
+
             // generate thead from tableConfig
             function generateThead(tableConfig) {
                 var theadHtml = '<thead><tr>';
@@ -2111,6 +2262,8 @@
                             tableKoreksiD.ajax.reload(checkAllTablesLoaded, false);
                             tableMutasiH.ajax.reload(checkAllTablesLoaded, false);
                             tableMutasiD.ajax.reload(checkAllTablesLoaded, false);
+                            tableSaldoHutang.ajax.reload(checkAllTablesLoaded, false);
+                            tableSaldoPiutang.ajax.reload(checkAllTablesLoaded, false);
                         } else {
                             $(this).prop('disabled', false);
                             return;
@@ -2289,6 +2442,20 @@
                     tableMutasiD.ajax.reload(function() {
                         showSuccessToast(
                             'Data Mutasi Detail berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'saldohutang') {
+                    activateTab('#tab-25');
+                    tableSaldoHutang.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Saldo Hutang berhasil difilter berdasarkan periode: ' +
+                            selectedPeriode);
+                    }, false);
+                } else if (filterTarget === 'saldopiutang') {
+                    activateTab('#tab-25');
+                    tableSaldoPiutang.ajax.reload(function() {
+                        showSuccessToast(
+                            'Data Saldo Piutang berhasil difilter berdasarkan periode: ' +
                             selectedPeriode);
                     }, false);
                 }
