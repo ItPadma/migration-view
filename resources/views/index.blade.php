@@ -143,6 +143,10 @@
                             <option value="jurnalmemo">Expense Jurnal Memo</option>
                             <option value="apcndn">Expense AP CN/DN</option>
                             <option value="arcndn">Expense AR CN/DN</option>
+                            <option value="tagihanklaim">Tagihan Klaim</option>
+                            <option value="pembayaranklaim">Pembayaran Klaim</option>
+                            <option value="pembayaranpphklaim">Pembayaran PPH Klaim</option>
+                            <option value="saldoawalklaim">Saldo Awal Klaim</option>
                         </select>
                         <button id="btn-download" class="btn btn-outline-success"><i
                                 class="fas fa-download"></i> Download</button>
